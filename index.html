@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RLC Advocacia | Direito Bancário</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="RLC Advocacia: análise de contratos de financiamento de veículos, defesa em ações de busca e apreensão e revisão de empréstimos, cartão e cheque especial. Desde 2010. OAB/PR 47.415.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="RLC Advocacia">
+<meta property="og:title" content="Direito Bancário | RLC Advocacia">
+<meta property="og:description" content="Seu financiamento merece uma análise cuidadosa. Revisão de contratos e defesa em busca e apreensão de veículos.">
+<meta property="og:image" content="assets/img/og-rlc-bancario.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12100d">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..800;1,100,400&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap">
+<link rel="preload" as="image" href="assets/img/hero-contrato.webp">
+<script src="assets/js/config.js"></script>
+<style>
+/* Conceito: "contrato anotado". Faixas escuras (cor do monograma) alternam com papel claro;
+   notas de margem em serifa itálica e um traço bronze que sublinha o que merece leitura atenta.
+   Movimento: um único vocabulário. Tudo entra com curta subida + opacidade, fotos se revelam
+   por máscara, linhas se desenham da esquerda; o fundo das fotos grandes se move mais devagar que a página. */
+:root{
+  --ink:#12100d; --ink-2:#1c1915; --ink-3:#26221c;
+  --paper:#efece6; --paper-2:#e4dfd5;
+  --on-ink:#f1ece3; --on-ink-muted:#b3a993;
+  --on-paper:#1b1814; --on-paper-muted:#5a5248;
+  --bronze:#b98a35; --bronze-soft:#d8b46e; --bronze-deep:#7a5413;
+  --green:#178a4a; --green-hover:#11733d; --green-ring:#7ee2a8;
+  --line-ink:rgba(241,236,227,.14); --line-paper:rgba(27,24,20,.16);
+  --danger-paper:#a12b1f;
+  --display:"Archivo","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --max:1180px; --gutter-l:max(16px, env(safe-area-inset-left,0px)); --gutter-r:max(16px, env(safe-area-inset-right,0px));
+  --head-h:84px;
+  --card:#f8f6f1; --r-img:18px; --r-card:20px; --r-ctl:12px; --curve:clamp(24px,3vw,40px);
+  /* sistema de movimento */
+  --ease:cubic-bezier(.2,.7,.2,1);       /* saída suave: entradas e revelações */
+  --ease-io:cubic-bezier(.65,0,.35,1);   /* entra e sai: máscaras e linhas */
+  --t-micro:.22s; --t-reveal:.75s; --t-mask:1.15s; --stagger:70ms;
+  color-scheme:light;
+}
+@media (max-width:860px){:root{--head-h:64px}}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--on-paper);font-family:var(--body);font-size:17px;line-height:1.6;font-variation-settings:"wdth" 100;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+section[id],main [id]{scroll-margin-top:calc(var(--head-h) - 10px)}
+h1,h2,h3{font-family:var(--display);font-weight:700;font-variation-settings:"wdth" 72;letter-spacing:-.01em;line-height:1.02;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:calc(var(--max) + 64px);margin-inline:auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+@media (min-width:720px){.wrap{padding-left:max(32px, env(safe-area-inset-left,0px));padding-right:max(32px, env(safe-area-inset-right,0px))}}
+.band{padding-block:clamp(72px,10vw,128px)}
+.ink{background:var(--ink);color:var(--on-ink)}
+.ink-2{background:var(--ink-2);color:var(--on-ink)}
+.paper{background:var(--paper);color:var(--on-paper)}
+.paper-2{background:var(--paper-2);color:var(--on-paper)}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--bronze-soft);color:var(--ink);padding:10px 14px;font-weight:600;text-decoration:none}
+.skip:focus{top:calc(12px + env(safe-area-inset-top,0px))}
+:focus-visible{outline:2px solid var(--bronze);outline-offset:3px}
+.ink :focus-visible,.ink-2 :focus-visible{outline-color:var(--bronze-soft)}
+
+/* Rótulos e notas de margem */
+.eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--body);font-variation-settings:"wdth" 125;font-size:.72rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze-deep)}
+.eyebrow::before{content:"";flex:none;width:28px;height:1px;background:currentColor;transform-origin:left center;transition:transform var(--t-mask) var(--ease-io) calc(var(--d,0ms) + 120ms)}
+.ink .eyebrow,.ink-2 .eyebrow{color:var(--bronze-soft)}
+.center{text-align:center;align-items:center}
+.center .eyebrow{justify-content:center}
+.center .eyebrow::after{content:"";flex:none;width:28px;height:1px;background:currentColor;transform-origin:right center;transition:transform var(--t-mask) var(--ease-io) calc(var(--d,0ms) + 120ms)}
+/* seções com topo arredondado sobrepõem levemente a anterior: quebra a sensação de blocos retos empilhados */
+.lift{position:relative;margin-top:calc(-1 * var(--curve));border-radius:var(--curve) var(--curve) 0 0}
+.note{font-family:var(--serif);font-style:italic;font-size:1.02rem;line-height:1.5;color:var(--on-paper-muted)}
+.ink .note,.ink-2 .note{color:var(--on-ink-muted)}
+.lede{font-family:var(--serif);font-size:clamp(1.15rem,1.6vw,1.35rem);line-height:1.5;max-width:34em}
+.h2{font-size:clamp(2.1rem,4.4vw,3.4rem)}
+.mark{position:relative;white-space:nowrap}
+.mark::after{content:"";position:absolute;left:-.04em;right:-.04em;bottom:.02em;height:.12em;background:var(--bronze);transform-origin:left center;border-radius:1px}
+
+/* Botão de conversão */
+.btn{--lift:0px;display:inline-flex;align-items:center;gap:.7em;min-height:52px;padding:.85em 1.4em;background:var(--green);color:#fff;border:0;border-radius:var(--r-ctl);font:600 1rem/1.1 var(--body);font-variation-settings:"wdth" 108;letter-spacing:.01em;text-decoration:none;cursor:pointer;position:relative;isolation:isolate;overflow:hidden;
+  transform:translateY(var(--lift));transition:background var(--t-micro) var(--ease),transform var(--t-micro) var(--ease),box-shadow .35s var(--ease);
+  box-shadow:0 1px 0 rgba(0,0,0,.18),0 10px 24px -14px rgba(23,138,74,.9)}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.16) 50%,transparent 70%);transform:translateX(-110%);transition:transform .7s var(--ease)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn .arrow{width:16px;height:16px;transition:transform .3s var(--ease)}
+.btn:hover{--lift:-2px;background:var(--green-hover);box-shadow:0 1px 0 rgba(0,0,0,.18),0 18px 30px -16px rgba(23,138,74,.95)}
+.btn:hover::before{transform:translateX(110%)}
+.btn:hover .arrow{transform:translateX(4px)}
+.btn:active{--lift:0px;transform:translateY(0) scale(.985);transition-duration:.08s}
+.btn:focus-visible{outline:3px solid var(--green-ring);outline-offset:3px}
+.btn[disabled]{cursor:progress;opacity:.9;--lift:0px}
+.btn.done{background:#0f6b38}
+.btn-sm{min-height:42px;padding:.6em 1em;font-size:.92rem}
+
+/* Links de texto: o sublinhado se refaz da esquerda no hover */
+.textlink{position:relative;font-weight:600;text-decoration:none;padding-bottom:3px;transition:color var(--t-micro) var(--ease)}
+.textlink::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform-origin:right center}
+.textlink:hover::after{animation:relink .6s var(--ease-io)}
+.ink .textlink,.ink-2 .textlink{color:var(--bronze-soft)}
+.textlink:hover{color:var(--bronze)}
+.ink .textlink:hover,.ink-2 .textlink:hover{color:#ecd3a0}
+@keyframes relink{0%{transform:scaleX(1);transform-origin:right center}45%{transform:scaleX(0);transform-origin:right center}46%{transform:scaleX(0);transform-origin:left center}100%{transform:scaleX(1);transform-origin:left center}}
+
+/* Cabeçalho: transparente sobre o hero, compacto e sólido depois de rolar */
+.top{position:fixed;left:0;right:0;top:0;z-index:50;padding-top:env(safe-area-inset-top,0px);color:var(--on-ink);background:rgba(18,16,13,0);border-bottom:1px solid transparent;transition:background .45s var(--ease),border-color .45s var(--ease),box-shadow .45s var(--ease)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:var(--head-h);transition:height .45s var(--ease)}
+.top .logo{display:block;transform-origin:left center;transition:transform .45s var(--ease)}
+.top .logo img{height:46px;width:auto}
+.top.scrolled{background:rgba(18,16,13,.985);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom-color:var(--line-ink);box-shadow:0 10px 30px -20px rgba(0,0,0,.8)}
+.top.scrolled .wrap{height:64px}
+.top.scrolled .logo{transform:scale(.82)}
+.top nav{display:flex;align-items:center;gap:26px;font-size:.9rem}
+.top nav a.nl{position:relative;text-decoration:none;color:var(--on-ink-muted);padding:6px 0;transition:color var(--t-micro) var(--ease)}
+.top nav a.nl::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--bronze-soft);transform:scaleX(0);transform-origin:left center;transition:transform .4s var(--ease)}
+.top nav a.nl:hover,.top nav a.nl.on{color:var(--on-ink)}
+.top nav a.nl:hover::after,.top nav a.nl.on::after{transform:scaleX(1)}
+@media (max-width:860px){.top nav a.nl{display:none}.top .logo img{height:40px}.top.scrolled .wrap{height:58px}}
+@media (max-width:380px){.top .btn-sm span{display:none}.top .btn-sm{padding:.6em .8em}}
+
+/* HERO: texto à esquerda, foto contida na coluna direita */
+.hero{position:relative}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,64px);align-items:center;padding-top:calc(var(--head-h) + env(safe-area-inset-top,0px) + clamp(28px,5vw,64px));padding-bottom:calc(clamp(56px,7vw,104px) + var(--curve))}
+.hero-copy{display:flex;flex-direction:column;gap:26px;min-width:0}
+.hero h1{font-size:clamp(2.6rem,6.4vw,5.4rem);font-variation-settings:"wdth" 66;line-height:.97}
+.hero h1 .ln{display:block}
+.hero h1 .serif{font-family:var(--serif);font-weight:400;font-style:italic;font-variation-settings:normal;letter-spacing:-.015em}
+.hero .lede{color:var(--on-ink-muted)}
+.hero .lede strong{color:var(--on-ink);font-weight:500}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:6px 0 0;padding:20px 0 0;position:relative;font-size:.86rem;line-height:1.45;color:var(--on-ink-muted)}
+.facts::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--line-ink);transform-origin:left center}
+.facts li{list-style:none;padding:0 16px;border-left:1px solid var(--line-ink);min-width:0}
+.facts li:first-child{border-left:0;padding-left:0}
+.facts b{display:block;color:var(--on-ink);font-weight:600;font-variation-settings:"wdth" 110;letter-spacing:.02em}
+@media (max-width:420px){.facts{grid-template-columns:1fr 1fr;row-gap:16px}.facts li:nth-child(3){border-left:0;padding-left:0}}
+.hero-media{position:relative;margin:0;min-width:0}
+.hero-photo{position:relative;overflow:hidden;aspect-ratio:4/5;border-radius:var(--r-img);background:var(--ink-3);box-shadow:0 40px 80px -40px rgba(0,0,0,.75);-webkit-mask-image:-webkit-radial-gradient(white,black)}
+.hero-photo .px{position:absolute;inset:-12% -4%}
+.hero-photo .mv{position:absolute;inset:0}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:40% 74%}
+.hero-photo::after{content:"";position:absolute;inset:auto 0 0 0;height:42%;background:linear-gradient(0deg,rgba(12,11,9,.82),rgba(12,11,9,0));pointer-events:none}
+.hero-photo figcaption{position:absolute;left:24px;right:24px;bottom:22px;z-index:2;max-width:19em}
+.hero-photo figcaption .note{color:var(--on-ink)}
+.hero-photo figcaption::before{content:"";display:block;width:36px;height:1px;background:var(--bronze-soft);margin-bottom:10px}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;padding-bottom:calc(48px + var(--curve))}
+  .hero-photo{aspect-ratio:4/3}
+  .hero-photo img{object-position:50% 78%}
+  .hero-photo figcaption{display:none}
+}
+
+/* Seção 2: identificação (centralizada) */
+.ident .wrap{display:flex;flex-direction:column;align-items:center;gap:clamp(40px,5vw,60px)}
+.ident-head{display:flex;flex-direction:column;gap:20px;max-width:760px}
+.ident-head .note{max-width:34em}
+.sit{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;width:100%;max-width:1000px}
+.sit li{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:clamp(26px,3vw,38px);background:var(--card);border:1px solid var(--line-paper);border-radius:var(--r-card)}
+.sit .tagm{font-family:var(--serif);font-style:italic;font-size:.98rem;line-height:1.3;color:var(--bronze-deep);padding:4px 14px;border:1px solid rgba(185,138,53,.38);border-radius:999px}
+.sit h3{font-size:clamp(1.25rem,1.9vw,1.5rem);font-variation-settings:"wdth" 80;line-height:1.18;margin-bottom:8px}
+.sit p{color:var(--on-paper-muted);max-width:30em;margin-inline:auto}
+.caveat{max-width:40em;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.caveat::before{content:"";width:40px;height:2px;border-radius:2px;background:var(--bronze)}
+@media (max-width:720px){.sit{grid-template-columns:1fr}}
+
+/* Seção 3: áreas de atuação */
+.areas-head{display:flex;flex-direction:column;gap:16px;max-width:780px;margin-bottom:clamp(36px,5vw,56px)}
+.areas-head h2{font-size:clamp(2.3rem,5vw,4rem)}
+.areas-head .lede{color:var(--on-paper-muted);max-width:34em}
+.feat{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:16px;align-items:stretch}
+.feat-a{position:relative;overflow:hidden;min-height:clamp(420px,42vw,540px);border-radius:var(--r-card);background:var(--ink);color:var(--on-ink);-webkit-mask-image:-webkit-radial-gradient(white,black)}
+.feat-a .px{position:absolute;inset:-12% 0}
+.feat-a img{width:100%;height:100%;object-fit:cover;object-position:60% 50%;transition:transform 1.4s var(--ease)}
+.feat-a:hover img{transform:scale(1.035)}
+.feat-a::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,16,13,.05) 15%,rgba(18,16,13,.62) 48%,rgba(18,16,13,.94) 100%);pointer-events:none}
+.feat-body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;gap:12px}
+.feat h3{font-size:clamp(1.8rem,3vw,2.5rem)}
+.feat-a p{color:#cfc6b6;max-width:34em}
+.feat-b{position:relative;padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;gap:18px;background:var(--ink-2);color:var(--on-ink);border-radius:var(--r-card)}
+.feat-b p{color:var(--on-ink-muted)}
+.feat-b .big{font-family:var(--serif);font-style:italic;font-size:clamp(1.2rem,1.8vw,1.42rem);line-height:1.38;color:var(--on-ink);padding-top:18px;border-top:1px solid var(--line-ink)}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-variation-settings:"wdth" 120;color:var(--bronze-soft)}
+.tag::before{content:"";width:18px;height:1px;background:currentColor}
+@media (max-width:860px){.feat{grid-template-columns:1fr}.feat-a{min-height:400px}.feat-a::after{background:linear-gradient(180deg,rgba(18,16,13,.25) 0%,rgba(18,16,13,.85) 38%,rgba(18,16,13,.96) 100%)}}
+/* Também atuamos em (centralizada) */
+.index{display:flex;flex-direction:column;align-items:center;gap:clamp(28px,4vw,44px);margin-top:clamp(64px,8vw,104px)}
+.index-lab{display:flex;flex-direction:column;gap:10px}
+.index-lab .note{font-size:1.3rem;color:var(--on-paper)}
+.svc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;width:100%}
+.svc li{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:30px 22px;background:var(--card);border:1px solid var(--line-paper);border-radius:var(--r-card)}
+.svc .ico{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:rgba(185,138,53,.12);color:var(--bronze-deep);margin-bottom:6px}
+.svc svg{width:24px;height:24px;stroke-dasharray:100;stroke-dashoffset:0;transition:stroke-dashoffset 1.2s var(--ease-io) calc(var(--d,0ms) + 200ms)}
+.svc h3{font-size:1.22rem;font-variation-settings:"wdth" 82;line-height:1.15}
+.svc p{font-size:.95rem;color:var(--on-paper-muted)}
+@media (max-width:980px){.svc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.svc{grid-template-columns:1fr}}
+
+/* Seção 4: busca e apreensão (centralizada). Fundo fotográfico em camada própria, mais lento que a página */
+.ba{overflow:hidden}
+.ba-photo{position:absolute;inset:0;overflow:hidden}
+.ba-photo .px{position:absolute;inset:-14% 0}
+.ba-photo img{width:100%;height:100%;object-fit:cover;object-position:68% 50%}
+.ba-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,16,13,.9) 0%,rgba(18,16,13,.78) 38%,rgba(18,16,13,.9) 72%,var(--ink) 100%)}
+.ba .wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
+.ba-copy{display:flex;flex-direction:column;gap:22px;max-width:840px}
+.ba-copy h2{font-size:clamp(2.3rem,5vw,4rem)}
+.ba-copy p{color:var(--on-ink-muted);max-width:40em}
+.ba-copy p strong{color:var(--on-ink);font-weight:500}
+.law{width:100%;max-width:880px;margin-top:clamp(40px,5vw,64px);background:rgba(18,16,13,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid var(--line-ink);border-radius:var(--r-card);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:22px}
+.law header{display:flex;flex-direction:column;align-items:center;gap:6px;padding-bottom:18px;border-bottom:1px solid var(--line-ink);text-align:center}
+.law dl{margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.law .row{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:6px clamp(14px,2vw,24px)}
+.law .row+.row{border-left:1px solid var(--line-ink)}
+.law dt{font-family:var(--display);font-variation-settings:"wdth" 64;font-weight:700;font-size:2.4rem;line-height:1;color:var(--bronze-soft);font-variant-numeric:tabular-nums}
+.law dt small{display:block;font-family:var(--body);font-variation-settings:"wdth" 110;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-ink-muted);font-weight:600;margin-top:8px}
+.law dd{margin:0;color:var(--on-ink);font-size:.97rem}
+.law dd cite{display:block;font-style:normal;font-size:.8rem;color:var(--on-ink-muted);margin-top:6px}
+.checklist{margin-top:clamp(44px,5vw,64px);display:flex;flex-direction:column;align-items:center;gap:18px;max-width:900px}
+.checklist ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.checklist li{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border:1px solid var(--line-ink);border-radius:999px;background:rgba(241,236,227,.05);color:var(--on-ink);font-size:.95rem;line-height:1.35}
+.checklist li svg{width:16px;height:16px;color:var(--bronze-soft);flex:none}
+.ba-foot{margin-top:clamp(32px,4vw,48px);display:flex;flex-direction:column;align-items:center;gap:22px}
+.ba-foot .note{max-width:36em}
+@media (max-width:760px){.law dl{grid-template-columns:1fr}.law .row{padding:18px 0}.law .row:first-child{padding-top:4px}.law .row+.row{border-left:0;border-top:1px solid var(--line-ink)}.law dt{font-size:2rem}.checklist li{border-radius:14px;text-align:left}}
+
+/* Seção 5: como funciona. Trilho de progresso nas etapas */
+.how .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(36px,6vw,96px);align-items:center}
+.how-media{margin:0;position:relative;min-width:0}
+.how-media .ph{overflow:hidden;border-radius:var(--r-img);box-shadow:0 30px 60px -36px rgba(0,0,0,.45);-webkit-mask-image:-webkit-radial-gradient(white,black)}
+.how-media img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:62% 50%}
+.how-media .note{margin-top:14px;max-width:22em}
+.how-copy{display:flex;flex-direction:column;gap:28px;min-width:0}
+.steps{list-style:none;margin:0;padding:0 0 0 32px;position:relative;--p:0}
+.steps::before{content:"";position:absolute;left:4px;top:34px;bottom:34px;width:1px;background:var(--line-paper)}
+.steps .fill{position:absolute;left:4px;top:34px;bottom:34px;width:1px;background:var(--bronze);transform-origin:top center;transform:scaleY(var(--p))}
+.steps li{position:relative;display:grid;grid-template-columns:56px minmax(0,1fr);gap:16px;padding:22px 0}
+.steps li+li{border-top:1px solid var(--line-paper)}
+.steps li::before{content:"";position:absolute;left:-32px;top:30px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:1px solid var(--on-paper-muted);transition:background .4s var(--ease),border-color .4s var(--ease),transform .4s var(--ease)}
+.steps li.on::before{background:var(--bronze);border-color:var(--bronze);transform:scale(1.3)}
+.steps .n{font-family:var(--display);font-variation-settings:"wdth" 62;font-weight:700;font-size:2.6rem;line-height:.9;color:rgba(122,84,19,.38);font-variant-numeric:tabular-nums;transition:color .5s var(--ease)}
+.steps li.on .n{color:var(--bronze-deep)}
+.steps h3{font-size:1.4rem;font-variation-settings:"wdth" 82;line-height:1.15;margin-bottom:6px}
+.steps p{color:var(--on-paper-muted)}
+@media (max-width:900px){.how .wrap{grid-template-columns:1fr}.how-media{order:2}.how-media img{aspect-ratio:4/3}}
+
+/* Seção 6: institucional (estática de propósito: pausa no ritmo) */
+.about .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,6vw,96px);align-items:center}
+.about-mark{display:flex;flex-direction:column;gap:28px;align-items:flex-start}
+.about-mark img{width:min(260px,70%)}
+.year{display:flex;align-items:center;gap:18px;border-top:1px solid var(--line-ink);padding-top:22px;width:100%}
+.year b{display:block;overflow:hidden;font-family:var(--display);font-variation-settings:"wdth" 62;font-weight:700;font-size:clamp(4rem,9vw,6.8rem);line-height:.9;color:var(--on-ink);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.year b i{display:block;font-style:normal;transition:transform 1s var(--ease) .1s}
+.year span{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--on-ink-muted);font-variation-settings:"wdth" 120;font-weight:600;line-height:1.5;padding-left:18px;border-left:1px solid var(--line-ink)}
+.about-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
+.about-copy p{color:var(--on-ink-muted);max-width:36em}
+.about-copy p strong{color:var(--on-ink);font-weight:500}
+.sig{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line-ink);margin:6px 0 0}
+.sig div{padding:18px 18px 0 0}
+.sig div+div{padding-left:18px;border-left:1px solid var(--line-ink)}
+.sig dt{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--on-ink-muted);font-variation-settings:"wdth" 120;font-weight:600;margin-bottom:6px}
+.sig dd{margin:0;font-family:var(--serif);font-size:1.2rem;color:var(--on-ink)}
+@media (max-width:860px){.about .wrap{grid-template-columns:1fr}}
+@media (max-width:420px){.sig{grid-template-columns:1fr}.sig div+div{border-left:0;padding-left:0}}
+
+/* Seção 7: FAQ (centralizada) */
+.faq .wrap{display:flex;flex-direction:column;align-items:center;gap:clamp(36px,5vw,56px)}
+.faq-head{display:flex;flex-direction:column;gap:18px;max-width:720px}
+.acc{width:100%;max-width:840px;display:flex;flex-direction:column;gap:12px}
+.acc-item{background:var(--card);border:1px solid var(--line-paper);border-radius:16px}
+.acc-item:hover{border-color:rgba(185,138,53,.45)}
+.acc-item.open{border-color:rgba(185,138,53,.6);background:#fcfbf8;box-shadow:0 18px 40px -30px rgba(27,24,20,.45)}
+.acc-item h3{font-size:inherit;font-variation-settings:normal;line-height:inherit;letter-spacing:0}
+.acc-btn{all:unset;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) 34px;align-items:center;gap:16px;width:100%;padding:22px 24px;border-radius:16px;cursor:pointer;font-family:var(--display);font-variation-settings:"wdth" 84;font-weight:600;font-size:clamp(1.08rem,1.5vw,1.24rem);line-height:1.3;color:var(--on-paper);transition:color var(--t-micro) var(--ease)}
+.acc-btn:hover{color:var(--bronze-deep)}
+.acc-btn:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+.plus{position:relative;width:34px;height:34px;border-radius:50%;border:1px solid var(--line-paper);transition:border-color .3s var(--ease),background .3s var(--ease),color .3s var(--ease),transform .5s var(--ease-io)}
+.acc-btn:hover .plus{border-color:var(--bronze)}
+.plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;border-radius:2px;background:currentColor;transform:translate(-50%,-50%);transition:transform .45s var(--ease-io)}
+.plus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.acc-btn[aria-expanded="true"] .plus{border-color:var(--bronze);background:var(--bronze);color:#fff;transform:rotate(180deg)}
+.acc-btn[aria-expanded="true"] .plus::after{transform:translate(-50%,-50%) rotate(0deg)}
+.acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease-io)}
+.acc-panel>div{overflow:hidden}
+.acc-panel p{padding:0 74px 24px 24px;color:var(--on-paper-muted);opacity:0;transform:translateY(-6px);transition:opacity .3s var(--ease),transform .4s var(--ease)}
+.acc-item.open .acc-panel{grid-template-rows:1fr}
+.acc-item.open .acc-panel p{opacity:1;transform:none;transition-delay:.12s}
+@media (max-width:560px){.acc-btn{padding:18px}.acc-panel p{padding:0 18px 20px}}
+
+/* Seção 8: conversão */
+.final{overflow:hidden}
+.final .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(36px,6vw,88px);align-items:center}
+.final-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
+.final-copy .h2{font-size:clamp(2.3rem,5vw,3.9rem)}
+.final-copy p{color:var(--on-ink-muted);max-width:32em}
+.final-media{margin:14px 0 0;position:relative;max-width:560px;overflow:hidden;aspect-ratio:16/11;border-radius:var(--r-img);-webkit-mask-image:-webkit-radial-gradient(white,black)}
+.final-media .px{position:absolute;inset:-12% 0}
+.final-media img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:saturate(.9)}
+.form{background:var(--paper);color:var(--on-paper);padding:clamp(24px,3.4vw,40px);display:flex;flex-direction:column;gap:20px;border-radius:22px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6);position:relative}
+.form::before{content:"";position:absolute;left:clamp(24px,3.4vw,40px);top:0;width:64px;height:3px;border-radius:0 0 3px 3px;background:var(--bronze);transition:width .6s var(--ease)}
+.form:focus-within::before{width:calc(100% - 2 * clamp(24px,3.4vw,40px))}
+.form h3{font-size:1.7rem;font-variation-settings:"wdth" 78}
+.form .note{font-size:.98rem}
+.field{display:flex;flex-direction:column;gap:7px}
+.field label{font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-variation-settings:"wdth" 115;color:var(--on-paper);transition:color var(--t-micro) var(--ease)}
+.field:focus-within label{color:var(--bronze-deep)}
+.ctl{position:relative}
+.field input{width:100%;min-height:56px;padding:0 44px 0 16px;border:1px solid rgba(27,24,20,.28);border-radius:var(--r-ctl);background:#fbfaf7;color:var(--on-paper);font:500 1.08rem/1.2 var(--body);transition:border-color var(--t-micro) var(--ease),box-shadow var(--t-micro) var(--ease),background var(--t-micro) var(--ease)}
+.field input::placeholder{color:#8a8277}
+.field input:hover{border-color:rgba(27,24,20,.5)}
+.field input:focus{outline:none;border-color:var(--bronze-deep);background:#fff;box-shadow:0 0 0 4px rgba(185,138,53,.2)}
+.field input[aria-invalid="true"]{border-color:var(--danger-paper);box-shadow:0 0 0 4px rgba(161,43,31,.1)}
+.ok-mark{position:absolute;right:14px;top:50%;width:18px;height:18px;margin-top:-9px;color:var(--green);opacity:0;transform:scale(.6);transition:opacity .25s var(--ease),transform .35s var(--ease);pointer-events:none}
+.field input.valid~.ok-mark{opacity:1;transform:none}
+.err{display:block;min-height:1.3em;font-size:.88rem;color:var(--danger-paper);font-weight:500;transition:opacity .25s var(--ease),transform .25s var(--ease)}
+.err:empty{opacity:0;transform:translateY(-3px)}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.form .btn{width:100%;justify-content:center;min-height:58px;font-size:1.06rem}
+.spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.45);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.status{font-size:.95rem;padding:12px 14px;border-radius:10px;border-left:3px solid var(--danger-paper);background:rgba(161,43,31,.07);color:var(--on-paper);animation:fade .35s var(--ease)}
+.status.ok{border-left-color:var(--green);background:rgba(23,138,74,.08)}
+.lgpd{font-size:.82rem;line-height:1.5;color:var(--on-paper-muted)}
+.lgpd a{color:var(--on-paper);font-weight:600}
+@media (max-width:900px){.final .wrap{grid-template-columns:1fr}.final-media{display:none}}
+
+/* Rodapé */
+.foot{background:#0c0b09;color:var(--on-ink-muted);font-size:.9rem}
+.foot .wrap{padding-block:56px calc(36px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:32px 64px}
+.foot img{width:150px}
+.foot-info{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.foot h2{font-family:var(--body);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--on-ink);font-variation-settings:"wdth" 120;font-weight:600;margin-bottom:10px;line-height:1.4}
+.foot a{color:var(--on-ink);text-decoration-color:rgba(241,236,227,.35);text-underline-offset:3px;transition:text-decoration-color var(--t-micro) var(--ease)}
+.foot a:hover{text-decoration-color:var(--bronze-soft)}
+.legal{grid-column:1/-1;border-top:1px solid var(--line-ink);padding-top:22px;font-size:.8rem;line-height:1.6;display:flex;flex-wrap:wrap;gap:10px 32px;justify-content:space-between}
+.legal p{max-width:70em}
+@media (max-width:860px){.foot .wrap{grid-template-columns:1fr}.foot-info{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.foot-info{grid-template-columns:1fr}}
+
+/* ===== Sistema de movimento ===== */
+.px{will-change:transform}
+@media (prefers-reduced-motion:no-preference){
+  /* Sequência de entrada do hero: título, apoio, ação, dados; a foto se revela por máscara */
+  .hero .eyebrow{animation:fade .7s var(--ease) both}
+  .hero .eyebrow::before{animation:drawx 1s .2s var(--ease-io) both}
+  .hero h1 .ln{animation:rise .9s var(--ease) both}
+  .hero h1 .ln:nth-child(1){animation-delay:.06s}
+  .hero h1 .ln:nth-child(2){animation-delay:.14s}
+  .hero h1 .ln:nth-child(3){animation-delay:.22s}
+  .hero .mark::after{animation:drawx .9s .75s var(--ease-io) both}
+  .hero .lede{animation:fade .8s .36s var(--ease) both}
+  .hero-actions{animation:fade .8s .46s var(--ease) both}
+  .facts{animation:fade .8s .56s var(--ease) both}
+  .facts::before{animation:drawx 1.1s .6s var(--ease-io) both}
+  .hero-photo{animation:unmask var(--t-mask) .12s var(--ease-io) both}
+  .hero-photo img{animation:settle 1.8s .12s var(--ease) both}
+  .hero-photo figcaption{animation:fade .8s 1s var(--ease) both}
+
+  /* Revelação na rolagem: só recebe .pre o que estava abaixo da dobra ao carregar */
+  .js .rv{transition:opacity var(--t-reveal) var(--ease) var(--d,0ms),transform var(--t-reveal) var(--ease) var(--d,0ms)}
+  .js .rv.pre{opacity:0;transform:translateY(22px)}
+  .js .rv-img{transition:clip-path var(--t-mask) var(--ease-io) var(--d,0ms)}
+  .js .rv-img img{transition:transform 1.6s var(--ease) var(--d,0ms)}
+  .js .rv-img.pre{clip-path:inset(16% 0 16% 0)}
+  .js .rv-img.pre img{transform:scale(1.1)}
+  .js .pre .eyebrow::before,.js .eyebrow.pre::before,.js .pre .eyebrow::after{transform:scaleX(0)}
+  .js .acc-item.rv{transition:opacity var(--t-reveal) var(--ease) var(--d,0ms),transform var(--t-reveal) var(--ease) var(--d,0ms),border-color .35s var(--ease),background .35s var(--ease),box-shadow .35s var(--ease)}
+  .js .pre.sit li::before,.js .sit li.pre::before,.js .svc li.pre::before,.js .checklist.pre::before{transform:scaleX(0)}
+  .js .svc li.pre svg{stroke-dashoffset:100}
+  .js .year.pre b i{transform:translateY(100%)}
+}
+@keyframes rise{from{opacity:0;transform:translateY(.4em)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes fadeo{from{opacity:0}to{opacity:1}}
+@keyframes drawx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes settle{from{transform:scale(1.08)}to{transform:scale(1)}}
+@keyframes unmask{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+@media (prefers-reduced-motion:reduce){.px{will-change:auto}.btn::before{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15a8.23 8.23 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48a.92.92 0 0 0-.66.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+    <symbol id="i-pct" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><circle cx="7.5" cy="7.5" r="2.2"/><circle cx="16.5" cy="16.5" r="2.2"/></g></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="M3 9.5h18M6.5 15h4"/></g></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="m11 12 8.5-8.5M16.5 6.5l2 2M14.5 8.5l1.5 1.5"/></g></symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5M4.5 9.5v8M9 9.5v8M15 9.5v8M19.5 9.5v8M3 20h18"/></g></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="top" id="topbar">
+  <div class="wrap">
+    <a class="logo" href="#topo" aria-label="RLC Advocacia, voltar ao início"><img src="assets/img/logo-rlc.webp" width="588" height="356" alt="RLC Advocacia"></a>
+    <nav aria-label="Seções da página">
+      <a class="nl" href="#atuacao">Atuação</a>
+      <a class="nl" href="#busca-e-apreensao">Busca e apreensão</a>
+      <a class="nl" href="#como-funciona">Como funciona</a>
+      <a class="nl" href="#duvidas">Dúvidas</a>
+      <a class="btn btn-sm cta" href="#contato"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>Falar com a equipe</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- 1. HERO -->
+<section class="hero ink" id="topo" aria-labelledby="h-hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Direito Bancário · RLC Advocacia</p>
+      <h1 id="h-hero"><span class="ln">Seu financiamento</span> <span class="ln">merece uma</span> <span class="ln serif"><span class="mark">análise cuidadosa.</span></span></h1>
+      <p class="lede">Analisamos contratos de <strong>financiamento de veículos, empréstimos e cartão</strong> e atuamos na defesa de quem responde a uma <strong>ação de busca e apreensão</strong>. Atendimento personalizado, com explicação clara de cada etapa.</p>
+      <div class="hero-actions">
+        <a class="btn cta" href="#contato"><svg aria-hidden="true"><use href="#i-wa"/></svg>Solicitar análise<svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="textlink" href="#busca-e-apreensao">Recebeu uma notificação? Veja o que observar</a>
+      </div>
+      <ul class="facts">
+        <li><b>Desde 2010</b>Fundada pelo Dr. Rafael Loiola Cardoso</li>
+        <li><b>OAB/PR 47.415</b>Responsável técnico</li>
+        <li><b>Primeiro contato</b>Pelo WhatsApp</li>
+      </ul>
+    </div>
+    <figure class="hero-media" id="hero-media">
+      <div class="hero-photo">
+        <div class="px" data-px="0.07"><div class="mv" id="hero-mv">
+          <img src="assets/img/hero-contrato.webp" width="1200" height="1490" alt="Contrato de financiamento sobre mesa de madeira, com chave de carro e caneta, enquanto um profissional aponta uma cláusula" fetchpriority="high">
+        </div></div>
+        <figcaption><p class="note">Taxas, CET, seguros e encargos: cada linha do contrato conta.</p></figcaption>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- 2. IDENTIFICAÇÃO -->
+<section class="ident paper band lift" aria-labelledby="h-ident">
+  <div class="wrap">
+    <div class="ident-head center rv">
+      <p class="eyebrow">Quando procurar orientação</p>
+      <h2 class="h2" id="h-ident">Situações que pedem uma segunda leitura</h2>
+      <p class="note">Contratos bancários são longos e técnicos. Entender o que foi assinado é o primeiro passo para decidir com segurança.</p>
+    </div>
+    <ul class="sit" data-stagger>
+      <li class="rv"><span class="tagm">Financiamento</span><div><h3>As parcelas do financiamento pesam mais do que o previsto</h3><p>Vale entender como foram calculados os juros, as tarifas e os seguros incluídos no contrato do veículo.</p></div></li>
+      <li class="rv"><span class="tagm">Cláusulas</span><div><h3>Há cláusulas que você não entendeu ao assinar</h3><p>Uma leitura técnica mostra o que cada cláusula prevê e quais efeitos ela tem sobre a sua dívida.</p></div></li>
+      <li class="rv"><span class="tagm">Notificação</span><div><h3>Chegou uma notificação sobre o veículo financiado</h3><p>Carta de cobrança ou aviso de busca e apreensão pedem atenção aos prazos e aos documentos recebidos.</p></div></li>
+      <li class="rv"><span class="tagm">Encargos</span><div><h3>Encargos de empréstimo, cartão ou cheque especial não fecham</h3><p>Comparar o que foi contratado com o que está sendo cobrado ajuda a identificar se há algo a questionar.</p></div></li>
+    </ul>
+    <p class="caveat note rv">Nem toda cobrança alta é irregular. É a análise do contrato e dos extratos que indica se existe algo a ser questionado e qual caminho faz sentido no seu caso.</p>
+    <a class="btn cta rv" href="#contato"><svg aria-hidden="true"><use href="#i-wa"/></svg>Entrar em contato</a>
+  </div>
+</section>
+
+<!-- 3. ÁREAS DE ATUAÇÃO -->
+<section class="areas paper-2 band lift" id="atuacao" aria-labelledby="h-areas">
+  <div class="wrap">
+    <div class="areas-head rv">
+      <p class="eyebrow">Áreas de atuação</p>
+      <h2 id="h-areas">Direito Bancário e Revisional</h2>
+      <p class="lede">Atuação preventiva e contenciosa nas relações com bancos e financeiras, com foco em veículos financiados.</p>
+    </div>
+
+    <div class="feat">
+      <article class="feat-a rv-img">
+        <div class="px" data-px="0.06"><img src="assets/img/analise-documentos.webp" width="1350" height="900" alt="Advogado revisando contrato de empréstimo e extratos bancários sobre a mesa" loading="lazy"></div>
+        <div class="feat-body">
+          <span class="tag">Prioridade do escritório</span>
+          <h3>Revisão de financiamento de veículos</h3>
+          <p>Análise do contrato, da taxa de juros, do Custo Efetivo Total (CET), das tarifas e dos seguros, para verificar se há cláusulas ou valores que possam ser questionados.</p>
+        </div>
+      </article>
+      <article class="feat-b rv" style="--d:140ms">
+        <span class="tag">Defesa</span>
+        <h3>Defesa em ação de busca e apreensão</h3>
+        <p>Atuação para quem responde a uma ação de busca e apreensão de veículo, com análise do contrato, da notificação e do andamento do processo.</p>
+        <p class="big">Os prazos desse processo são curtos. Quanto antes os documentos forem analisados, mais clara fica a situação.</p>
+        <a class="textlink" href="#busca-e-apreensao" style="align-self:flex-start">Entenda o que a lei prevê</a>
+      </article>
+    </div>
+
+    <div class="index">
+      <div class="index-lab center rv">
+        <p class="eyebrow">Também atuamos em</p>
+        <p class="note">Outras relações com bancos, cartões e contas.</p>
+      </div>
+      <ul class="svc" data-stagger>
+        <li class="rv"><span class="ico"><svg aria-hidden="true"><use href="#i-pct"/></svg></span><h3>Revisão de empréstimos</h3><p>Análise dos termos e dos encargos de empréstimos contratados.</p></li>
+        <li class="rv"><span class="ico"><svg aria-hidden="true"><use href="#i-card"/></svg></span><h3>Cartão de crédito</h3><p>Verificação de cobranças, juros e encargos previstos no contrato do cartão.</p></li>
+        <li class="rv"><span class="ico"><svg aria-hidden="true"><use href="#i-key"/></svg></span><h3>Operações com garantia</h3><p>Revisão e orientação em contratos que envolvem garantias e penhoras.</p></li>
+        <li class="rv"><span class="ico"><svg aria-hidden="true"><use href="#i-bank"/></svg></span><h3>Limite de conta e cheque especial</h3><p>Análise de juros e cobranças sobre o limite da conta corrente.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 4. BUSCA E APREENSÃO -->
+<section class="ba ink band lift" id="busca-e-apreensao" aria-labelledby="h-ba">
+  <div class="ba-photo" aria-hidden="true"><div class="px" data-px="0.1"><img src="assets/img/veiculo-garagem.webp" width="1380" height="776" alt="" loading="lazy"></div></div>
+  <div class="wrap">
+    <div class="ba-copy center rv">
+      <p class="eyebrow">Busca e apreensão de veículos</p>
+      <h2 id="h-ba">Recebeu uma notificação sobre o seu veículo?</h2>
+      <p>No financiamento com <strong>alienação fiduciária</strong>, o veículo fica vinculado ao contrato até a quitação. Havendo atraso, o credor pode notificar o devedor e, depois, pedir a busca e apreensão na Justiça.</p>
+      <p>Cada situação depende do <strong>contrato</strong>, da forma como a <strong>notificação</strong> foi feita, dos <strong>valores cobrados</strong> e do <strong>andamento do processo</strong>. Por isso, a orientação começa pela leitura desses documentos.</p>
+    </div>
+    <aside class="law rv" style="--d:120ms" aria-labelledby="h-law">
+      <header>
+        <span class="tag">Decreto-Lei 911/1969</span>
+        <h3 id="h-law" style="font-size:1.45rem;font-variation-settings:'wdth' 82">O que a lei prevê</h3>
+      </header>
+      <dl>
+        <div class="row"><dt>Mora<small>Comprovação</small></dt><dd>Antes do pedido na Justiça, o atraso precisa ser comprovado, em regra por carta registrada com aviso de recebimento.<cite>Art. 2º, § 2º</cite></dd></div>
+        <div class="row"><dt>5<small>dias</small></dt><dd>Prazo, contado do cumprimento da liminar, para pagar a integralidade da dívida pendente apresentada pelo credor.<cite>Art. 3º, § 2º</cite></dd></div>
+        <div class="row"><dt>15<small>dias</small></dt><dd>Prazo, contado do cumprimento da liminar, para apresentar resposta no processo.<cite>Art. 3º, § 3º</cite></dd></div>
+      </dl>
+    </aside>
+    <div class="checklist center rv">
+      <h3 style="font-size:1.35rem;font-variation-settings:'wdth' 82">O que é analisado</h3>
+      <ul>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Contrato de financiamento e aditivos</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Notificação recebida e a data de entrega</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Valores cobrados e planilha do credor</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Peças e decisões do processo, se já houver</li>
+      </ul>
+    </div>
+    <div class="ba-foot center rv">
+      <p class="note">Informações gerais. O caminho possível depende dos documentos e das circunstâncias de cada caso, e nenhum resultado pode ser garantido.</p>
+      <a class="btn cta" href="#contato"><svg aria-hidden="true"><use href="#i-wa"/></svg>Falar com a equipe<svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- 5. COMO FUNCIONA -->
+<section class="how paper band lift" id="como-funciona" aria-labelledby="h-how">
+  <div class="wrap">
+    <figure class="how-media">
+      <div class="ph rv-img"><img src="assets/img/atendimento.webp" width="1200" height="900" alt="Cliente conversando com um profissional em uma mesa de reunião" loading="lazy"></div>
+      <figcaption class="note rv">O primeiro contato é feito pelo WhatsApp, no horário que for melhor para você.</figcaption>
+    </figure>
+    <div class="how-copy">
+      <div class="rv" style="display:flex;flex-direction:column;gap:18px">
+        <p class="eyebrow">Como funciona o atendimento</p>
+        <h2 class="h2" id="h-how">Três passos até uma orientação clara</h2>
+      </div>
+      <ol class="steps" id="steps" data-stagger>
+        <span class="fill" aria-hidden="true"></span>
+        <li class="rv"><span class="n" aria-hidden="true">1</span><div><h3>Você conta o que está acontecendo</h3><p>Pelo WhatsApp, você explica a situação: o tipo de contrato, o banco ou a financeira e o que motivou o contato.</p></div></li>
+        <li class="rv"><span class="n" aria-hidden="true">2</span><div><h3>Análise inicial das informações</h3><p>Com o contrato, as notificações e os extratos que você tiver, é feita uma primeira leitura dos documentos disponíveis.</p></div></li>
+        <li class="rv"><span class="n" aria-hidden="true">3</span><div><h3>Orientação sobre o caminho possível</h3><p>Você recebe uma explicação sobre as possibilidades jurídicas que se aplicam ao seu caso e sobre o que cada uma envolve.</p></div></li>
+      </ol>
+      <p class="note rv">Ainda não reuniu todos os documentos? Comece pelo que você tem. A equipe orienta o que mais pode ser útil.</p>
+      <a class="btn cta rv" href="#contato" style="align-self:flex-start"><svg aria-hidden="true"><use href="#i-wa"/></svg>Solicitar análise<svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. INSTITUCIONAL -->
+<section class="about ink-2 band lift" id="escritorio" aria-labelledby="h-about">
+  <div class="wrap">
+    <div class="about-mark rv">
+      <img src="assets/img/logo-rlc.webp" width="588" height="356" alt="RLC Advocacia" loading="lazy">
+      <div class="year rv"><b><i>2010</i></b><span>Ano de<br>fundação</span></div>
+    </div>
+    <div class="about-copy rv" style="--d:120ms">
+      <p class="eyebrow">O escritório</p>
+      <h2 class="h2" id="h-about">Advocacia bancária com atendimento próximo</h2>
+      <p>A <strong>RLC Advocacia</strong> foi fundada em 2010 pelo <strong>Dr. Rafael Loiola Cardoso</strong>. O escritório atua de forma preventiva e contenciosa, com foco em Direito Bancário e Revisional, e se destaca pelo atendimento personalizado.</p>
+      <p>O trabalho é conduzido com ética e transparência, para que cada cliente entenda o próprio contrato, os riscos envolvidos e as opções disponíveis.</p>
+      <dl class="sig">
+        <div><dt>Fundador</dt><dd>Dr. Rafael Loiola Cardoso</dd></div>
+        <div><dt>Inscrição</dt><dd>OAB/PR 47.415</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="faq paper band lift" id="duvidas" aria-labelledby="h-faq">
+  <div class="wrap">
+    <div class="faq-head center rv">
+      <p class="eyebrow">Perguntas frequentes</p>
+      <h2 class="h2" id="h-faq">Dúvidas comuns antes do primeiro contato</h2>
+      <p class="note">Respostas gerais. Cada caso depende do contrato e dos documentos.</p>
+    </div>
+    <div class="acc" data-acc>
+      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-1" id="faq-b1">É possível revisar um contrato de financiamento?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-1" role="region" aria-labelledby="faq-b1"><div><p>A revisão pode ser pedida quando a análise identifica cláusulas, taxas ou encargos em desacordo com a lei ou com o que foi contratado. Nem todo contrato apresenta irregularidades, por isso o primeiro passo é sempre a leitura dos documentos.</p></div></div></div>
+      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-2" id="faq-b2">O que é analisado em um contrato bancário?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-2" role="region" aria-labelledby="faq-b2"><div><p>Entre outros pontos: a taxa de juros e a forma de cálculo, o Custo Efetivo Total (CET), tarifas, seguros e serviços incluídos, encargos por atraso e as cláusulas sobre garantias. Também se compara o contrato com os valores efetivamente cobrados.</p></div></div></div>
+      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-3" id="faq-b3">O que fazer ao receber uma notificação de busca e apreensão?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-3" role="region" aria-labelledby="faq-b3"><div><p>Guarde a notificação e o envelope, reúna o contrato e os comprovantes de pagamento e procure orientação jurídica, porque os prazos do processo são curtos. Antes de assinar acordos ou tomar decisões sobre o veículo, procure entender as consequências de cada opção.</p></div></div></div>
+      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-4" id="faq-b4">Quais documentos podem ser necessários para a análise?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-4" role="region" aria-labelledby="faq-b4"><div><p>Em geral: contrato e aditivos, boletos ou carnê, comprovantes de pagamento, extratos, notificações recebidas e, se houver processo, o número dele ou cópias das peças. Não é preciso ter tudo para fazer o primeiro contato.</p></div></div></div>
+      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-5" id="faq-b5">Como funciona o primeiro contato com o escritório?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-5" role="region" aria-labelledby="faq-b5"><div><p>Você informa seu nome e WhatsApp no formulário desta página e, em seguida, é direcionado para conversar com a equipe no WhatsApp. Lá você conta a sua situação e recebe orientação sobre os próximos passos.</p></div></div></div>
+      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-6" id="faq-b6">Contratar um advogado garante a revisão ou impede a apreensão?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-6" role="region" aria-labelledby="faq-b6"><div><p>Não. A atuação jurídica busca defender os seus interesses dentro da lei, mas o resultado depende do contrato, das provas e das decisões do Judiciário. Nenhum advogado pode garantir resultado.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. CONVERSÃO -->
+<section class="final ink band lift" id="contato" aria-labelledby="h-final">
+  <div class="wrap">
+    <div class="final-copy rv">
+      <p class="eyebrow">Fale com a RLC Advocacia</p>
+      <h2 class="h2" id="h-final">Converse com a equipe sobre o seu contrato</h2>
+      <p>Deixe seu nome e WhatsApp. Em seguida, você será direcionado para conversar com o escritório e contar a sua situação com calma.</p>
+      <figure class="final-media rv-img"><div class="px" data-px="0.06"><img src="assets/img/escritorio.webp" width="1050" height="1400" alt="Escritório de advocacia com estante de livros e mesa de madeira ao entardecer" loading="lazy"></div></figure>
+    </div>
+    <form class="form rv" style="--d:140ms" id="lead-form" novalidate aria-labelledby="h-form">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <h3 id="h-form">Solicite uma análise</h3>
+        <p class="note">Leva menos de um minuto. São só dois campos.</p>
+      </div>
+      <div class="field">
+        <label for="f-nome">Nome</label>
+        <div class="ctl">
+          <input id="f-nome" name="nome" type="text" autocomplete="name" autocapitalize="words" enterkeyhint="next" maxlength="120" placeholder="Como podemos te chamar?" required aria-describedby="e-nome">
+          <svg class="ok-mark" aria-hidden="true"><use href="#i-check"/></svg>
+        </div>
+        <span class="err" id="e-nome" aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for="f-whats">WhatsApp</label>
+        <div class="ctl">
+          <input id="f-whats" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel-national" enterkeyhint="send" maxlength="16" placeholder="(41) 99999-9999" required aria-describedby="e-whats">
+          <svg class="ok-mark" aria-hidden="true"><use href="#i-check"/></svg>
+        </div>
+        <span class="err" id="e-whats" aria-live="polite"></span>
+      </div>
+      <div class="hp" aria-hidden="true"><label for="f-empresa">Não preencha</label><input id="f-empresa" name="empresa" type="text" tabindex="-1" autocomplete="off"></div>
+      <div id="form-status" class="status" role="alert" hidden></div>
+      <button class="btn" type="submit" id="f-submit"><svg aria-hidden="true" class="ic"><use href="#i-wa"/></svg><span class="lbl">Solicitar análise</span></button>
+      <p class="lgpd">Ao enviar, você concorda que a RLC Advocacia use seu nome e WhatsApp somente para responder a este contato, conforme a <a href="privacidade.html">Política de Privacidade</a>. Enviar o formulário não cria relação de contratação.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <img src="assets/img/logo-rlc.webp" width="588" height="356" alt="RLC Advocacia" loading="lazy">
+      <p>Direito Bancário e Revisional</p>
+    </div>
+    <div class="foot-info">
+      <div><h2>Responsável técnico</h2><p>Dr. Rafael Loiola Cardoso<br>OAB/PR 47.415</p></div>
+      <div><h2>Contato</h2><p>WhatsApp: <span>(41) 99917-3755</span></p></div>
+      <div><h2>Informações</h2><p><a href="privacidade.html">Política de Privacidade</a></p></div>
+    </div>
+    <div class="legal">
+      <p>Este site não é um produto da Meta Platforms, Inc. nem da Google LLC e não oferece serviços públicos oficiais. Conteúdo de caráter informativo, em observância ao Código de Ética e Disciplina da OAB e ao Provimento 205/2021. Imagens meramente ilustrativas.</p>
+      <p>© <span id="yr">2026</span> RLC Advocacia</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var C = window.RLC_CONFIG || {};
+  document.documentElement.classList.add("js");
+  var yr = document.getElementById("yr"); if (yr) yr.textContent = new Date().getFullYear();
+
+  /* Google Tag Manager (ID do site atual). Não carrega dentro da pré-visualização do Claude. */
+  window.dataLayer = window.dataLayer || [];
+  var host = location.hostname || "";
+  var isPreview = /claude|anthropic/i.test(host) || location.protocol === "file:";
+  if (C.GTM_ID && !isPreview) {
+    window.dataLayer.push({"gtm.start": Date.now(), event: "gtm.js"});
+    var g = document.createElement("script"); g.async = true;
+    g.src = "https://www.googletagmanager.com/gtm.js?id=" + encodeURIComponent(C.GTM_ID);
+    document.head.appendChild(g);
+  }
+
+  /* UTMs e identificadores de campanha, guardados na sessão */
+  var KEYS = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","gclid","fbclid"];
+  var track = {};
+  try { track = JSON.parse(sessionStorage.getItem("rlc_track") || "{}"); } catch(e) { track = {}; }
+  try {
+    var qs = new URLSearchParams(location.search);
+    KEYS.forEach(function(k){ var v = qs.get(k); if (v) track[k] = v.slice(0,200); });
+    if (!track.landing) track.landing = (location.origin + location.pathname).slice(0,300);
+    if (!track.referrer && document.referrer) track.referrer = document.referrer.slice(0,300);
+    sessionStorage.setItem("rlc_track", JSON.stringify(track));
+  } catch(e) {}
+
+  /* Origem do lead, no formato já usado nas outras LPs (coluna "origem") */
+  function leadOrigin(){
+    if (track.utm_source) return (track.utm_source + (track.utm_campaign ? " / " + track.utm_campaign : "")).slice(0,200);
+    if (track.gclid) return "Google Ads";
+    if (track.fbclid) return "Meta Ads";
+    if (track.referrer) { try { var h = new URL(track.referrer).hostname.replace(/^www\./, ""); if (h && h !== location.hostname) return h.slice(0,200); } catch(e) {} }
+    return "direto";
+  }
+  function sbInsert(table, row, opts){
+    return fetch(C.SUPABASE_URL.replace(/\/$/, "") + "/rest/v1/" + encodeURIComponent(table), Object.assign({
+      method: "POST",
+      headers: { "apikey": C.SUPABASE_ANON_KEY, "Authorization": "Bearer " + C.SUPABASE_ANON_KEY, "Content-Type": "application/json", "Prefer": "return=minimal" },
+      body: JSON.stringify(row)
+    }, opts || {}));
+  }
+
+  /* 1 visita por carregamento de página (lp_visits). Não conta a pré-visualização do Claude. */
+  if (C.SUPABASE_URL && C.SUPABASE_ANON_KEY && C.SITE && !isPreview) {
+    try {
+      sbInsert(C.VISITS_TABLE || "lp_visits", {
+        site: C.SITE,
+        referrer: document.referrer ? document.referrer.slice(0,300) : null,
+        path: (location.pathname + location.search).slice(0,500)
+      }, { keepalive: true }).catch(function(){});
+    } catch(e) {}
+  }
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  var wideQ = window.matchMedia("(min-width: 861px)");
+
+  /* CTAs: rolagem suave até o formulário e foco no primeiro campo */
+  var nome = document.getElementById("f-nome");
+  document.querySelectorAll('a.cta[href="#contato"]').forEach(function(a){
+    a.addEventListener("click", function(ev){
+      ev.preventDefault();
+      document.getElementById("contato").scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "start"});
+      setTimeout(function(){ nome.focus({preventScroll:true}); }, reduce ? 0 : 700);
+    });
+  });
+
+  /* ===== Revelação na rolagem ===== */
+  document.querySelectorAll("[data-stagger]").forEach(function(list){
+    Array.prototype.forEach.call(list.querySelectorAll(":scope > .rv"), function(el, i){ el.style.setProperty("--d", (i * 90) + "ms"); });
+  });
+  if (!reduce && "IntersectionObserver" in window) {
+    var targets = Array.prototype.slice.call(document.querySelectorAll(".rv, .rv-img"));
+    var vh0 = window.innerHeight;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.remove("pre"); io.unobserve(en.target); } });
+    }, {rootMargin:"0px 0px -10% 0px", threshold:0.12});
+    targets.forEach(function(el){ if (el.getBoundingClientRect().top > vh0 * 0.92) { el.classList.add("pre"); io.observe(el); } });
+    /* segurança: nada fica escondido se o observador falhar (ex.: ir direto a uma âncora) */
+    var showVisible = function(){ targets.forEach(function(el){ var r = el.getBoundingClientRect(); if (r.top < window.innerHeight && r.bottom > 0) el.classList.remove("pre"); }); };
+    window.addEventListener("hashchange", function(){ setTimeout(showVisible, 80); });
+    window.addEventListener("load", function(){ setTimeout(showVisible, 60); });
+  }
+
+  /* ===== Cabeçalho, parallax, trilho das etapas e cursor no hero: um único laço por quadro ===== */
+  var top = document.getElementById("topbar");
+  var pxEls = Array.prototype.slice.call(document.querySelectorAll("[data-px]")).map(function(el){
+    return { el: el, speed: parseFloat(el.getAttribute("data-px")) || 0, box: el.closest(".hero-media, .feat-a, .ba, .final-media") || el.parentElement, on: false, y: null };
+  });
+  var steps = document.getElementById("steps");
+  var stepItems = steps ? Array.prototype.slice.call(steps.querySelectorAll("li")) : [];
+  var mv = document.getElementById("hero-mv");
+  var heroMedia = document.getElementById("hero-media");
+  var pxAllowed = function(){ return !reduce && wideQ.matches; };
+
+  if ("IntersectionObserver" in window) {
+    var pio = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ pxEls.forEach(function(p){ if (p.box === en.target) p.on = en.isIntersecting; }); });
+      request();
+    }, {rootMargin:"120px 0px"});
+    pxEls.forEach(function(p){ pio.observe(p.box); });
+  } else { pxEls.forEach(function(p){ p.on = true; }); }
+
+  var ticking = false;
+  var mouse = {tx:0, ty:0, x:0, y:0, active:false};
+  function request(){ if (!ticking){ ticking = true; requestAnimationFrame(frame); } }
+  function frame(){
+    ticking = false;
+    var vh = window.innerHeight, sy = window.scrollY;
+    top.classList.toggle("scrolled", sy > 24);
+
+    var allow = pxAllowed();
+    pxEls.forEach(function(p){
+      if (!allow) { if (p.y !== null) { p.el.style.transform = ""; p.y = null; } return; }
+      if (!p.on) return;
+      var r = p.box.getBoundingClientRect();
+      var offset = (r.top + r.height / 2) - vh / 2;            /* distância do centro da tela */
+      var limit = r.height * 0.10;                              /* nunca ultrapassa a sobra da camada */
+      var y = Math.max(-limit, Math.min(limit, -offset * p.speed));
+      if (p.y === null || Math.abs(y - p.y) > 0.1) { p.el.style.transform = "translate3d(0," + y.toFixed(2) + "px,0)"; p.y = y; }
+    });
+
+    if (steps) {
+      var sr = steps.getBoundingClientRect(), mark = vh * 0.62;
+      var prog = Math.max(0, Math.min(1, (mark - sr.top - 30) / Math.max(1, sr.height - 60)));
+      steps.style.setProperty("--p", reduce ? 1 : prog.toFixed(3));
+      stepItems.forEach(function(li){ li.classList.toggle("on", reduce || li.getBoundingClientRect().top + 30 < mark); });
+    }
+
+    if (mouse.active && mv) {
+      mouse.x += (mouse.tx - mouse.x) * 0.08; mouse.y += (mouse.ty - mouse.y) * 0.08;
+      mv.style.transform = "translate3d(" + (mouse.x * -10).toFixed(2) + "px," + (mouse.y * -8).toFixed(2) + "px,0) scale(1.04)";
+      if (Math.abs(mouse.tx - mouse.x) > 0.002 || Math.abs(mouse.ty - mouse.y) > 0.002) request();
+    }
+  }
+  window.addEventListener("scroll", request, {passive:true});
+  window.addEventListener("resize", request);
+  if (wideQ.addEventListener) wideQ.addEventListener("change", request);
+  request();
+
+  /* Cursor: a foto do hero responde levemente ao movimento, só em desktop com mouse */
+  if (!reduce && finePointer && mv && heroMedia) {
+    var hero = document.getElementById("topo");
+    mv.style.transition = "transform .9s cubic-bezier(.2,.7,.2,1)";
+    setTimeout(function(){ mv.style.transition = ""; }, 1900);
+    hero.addEventListener("pointermove", function(e){
+      if (!wideQ.matches) return;
+      var r = heroMedia.getBoundingClientRect();
+      mouse.tx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (window.innerWidth / 2)));
+      mouse.ty = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (window.innerHeight / 2)));
+      mouse.active = true; request();
+    });
+    hero.addEventListener("pointerleave", function(){ mouse.tx = 0; mouse.ty = 0; request(); });
+  }
+
+  /* Navegação: destaca a seção em leitura */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".top nav a.nl"));
+  if ("IntersectionObserver" in window && navLinks.length) {
+    var nio = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        navLinks.forEach(function(a){ a.classList.toggle("on", a.getAttribute("href") === "#" + en.target.id); });
+      });
+    }, {rootMargin:"-45% 0px -50% 0px"});
+    ["topo","atuacao","busca-e-apreensao","como-funciona","escritorio","duvidas","contato"].forEach(function(id){ var s = document.getElementById(id); if (s) nio.observe(s); });
+  }
+
+  /* Acordeão acessível */
+  document.querySelectorAll("[data-acc] .acc-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var item = btn.closest(".acc-item");
+      var open = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!open));
+      item.classList.toggle("open", !open);
+    });
+  });
+
+  /* ===== Formulário (lógica de captação inalterada) ===== */
+  var form = document.getElementById("lead-form");
+  var whats = document.getElementById("f-whats");
+  var hp = document.getElementById("f-empresa");
+  var btn = document.getElementById("f-submit");
+  var statusEl = document.getElementById("form-status");
+  var eNome = document.getElementById("e-nome"), eWhats = document.getElementById("e-whats");
+  var loadedAt = Date.now();
+  var sending = false;
+
+  function digits(v){ return (v || "").replace(/\D/g, ""); }
+  function mask(v){
+    var d = digits(v);
+    if (d.length > 11 && d.indexOf("55") === 0) d = d.slice(2);
+    d = d.slice(0, 11);
+    if (d.length <= 2) return d.length ? "(" + d : "";
+    if (d.length <= 6) return "(" + d.slice(0,2) + ") " + d.slice(2);
+    if (d.length <= 10) return "(" + d.slice(0,2) + ") " + d.slice(2,6) + "-" + d.slice(6);
+    return "(" + d.slice(0,2) + ") " + d.slice(2,7) + "-" + d.slice(7);
+  }
+  function cleanName(v){ return (v || "").replace(/\s+/g, " ").trim(); }
+  function nameOk(v){ return v.length >= 2 && v.length <= 120 && /[A-Za-zÀ-ÿ]{2}/.test(v) && !/\d{3,}|https?:|www\./i.test(v); }
+  function normalizePhone(v){
+    var d = digits(v);
+    if (d.length > 11 && d.indexOf("55") === 0) d = d.slice(2);
+    if (d.length !== 10 && d.length !== 11) return null;
+    var ddd = parseInt(d.slice(0,2), 10);
+    if (ddd < 11 || ddd > 99 || d[0] === "0" || d[1] === "0") return null;
+    if (d.length === 11 && d[2] !== "9") return null;
+    if (/^(\d)\1+$/.test(d.slice(2))) return null;
+    return "+55" + d;
+  }
+  /* feedback leve enquanto digita: marca de confirmação quando o campo já está válido */
+  function liveMark(){
+    nome.classList.toggle("valid", nameOk(cleanName(nome.value)));
+    whats.classList.toggle("valid", !!normalizePhone(whats.value));
+  }
+  whats.addEventListener("input", function(){
+    var pos = whats.selectionStart, before = whats.value.length;
+    whats.value = mask(whats.value);
+    var diff = whats.value.length - before;
+    try { whats.setSelectionRange(pos + diff, pos + diff); } catch(e) {}
+    if (whats.getAttribute("aria-invalid") === "true") validateWhats();
+    liveMark();
+  });
+  nome.addEventListener("input", function(){ if (nome.getAttribute("aria-invalid") === "true") validateNome(); liveMark(); });
+  nome.addEventListener("blur", function(){ if (nome.value) validateNome(); });
+  whats.addEventListener("blur", function(){ if (whats.value) validateWhats(); });
+
+  function validateNome(){
+    var v = cleanName(nome.value);
+    var ok = nameOk(v);
+    nome.setAttribute("aria-invalid", ok ? "false" : "true");
+    eNome.textContent = ok ? "" : (v ? "Informe um nome válido, apenas com letras." : "Informe seu nome.");
+    return ok;
+  }
+  function validateWhats(){
+    var n = normalizePhone(whats.value);
+    whats.setAttribute("aria-invalid", n ? "false" : "true");
+    eWhats.textContent = n ? "" : (digits(whats.value) ? "Confira o número com DDD. Ex.: (41) 99999-9999." : "Informe seu WhatsApp com DDD.");
+    return n;
+  }
+  function setStatus(msg){ statusEl.textContent = msg; statusEl.className = "status"; statusEl.hidden = !msg; }
+  function setLoading(on){
+    sending = on; btn.disabled = on; btn.setAttribute("aria-busy", String(on));
+    var lbl = btn.querySelector(".lbl"), ic = btn.querySelector(".ic");
+    var sp = btn.querySelector(".spinner");
+    if (on) { lbl.textContent = "Enviando..."; ic.style.display = "none"; if (!sp) { sp = document.createElement("span"); sp.className = "spinner"; sp.setAttribute("aria-hidden","true"); btn.insertBefore(sp, lbl); } }
+    else { lbl.textContent = "Solicitar análise"; ic.style.display = ""; if (sp) sp.remove(); }
+  }
+
+  function saveLead(payload){
+    if (!C.SUPABASE_URL || !C.SUPABASE_ANON_KEY) {
+      return Promise.reject({ user: "O envio ainda não está ativo nesta página. Fale com o escritório pelo WhatsApp (41) 99917-3755." , code: "not_configured" });
+    }
+    var ctrl = ("AbortController" in window) ? new AbortController() : null;
+    var t = setTimeout(function(){ if (ctrl) ctrl.abort(); }, 15000);
+    return sbInsert(C.LEADS_TABLE || "lp_leads", payload, { signal: ctrl ? ctrl.signal : undefined }).then(function(r){
+      clearTimeout(t);
+      if (r.ok) return true;
+      throw { user: "Não foi possível enviar agora. Tente de novo em instantes.", code: r.status };
+    }, function(){
+      clearTimeout(t);
+      throw { user: "Sem conexão com o servidor. Verifique sua internet e tente de novo.", code: "network" };
+    });
+  }
+
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    if (sending) return;
+    setStatus("");
+    var okNome = validateNome();
+    var phone = validateWhats();
+    if (!okNome) { nome.focus(); return; }
+    if (!phone) { whats.focus(); return; }
+    if (hp.value) { setStatus("Não foi possível enviar. Atualize a página e tente novamente."); return; }
+    if (Date.now() - loadedAt < 2500) { setStatus("Confira seus dados e toque em enviar novamente."); return; }
+
+    var payload = {
+      site: C.SITE,
+      nome: cleanName(nome.value),
+      whatsapp: phone,
+      origem: leadOrigin()
+    };
+    setLoading(true);
+    saveLead(payload).then(function(){
+      try { sessionStorage.setItem("rlc_lead", JSON.stringify({ nome: payload.nome.split(" ")[0], t: Date.now() })); } catch(e) {}
+      window.dataLayer.push({ event: "generate_lead", lead_site: payload.site, lead_origem: payload.origem });
+      /* confirmação visual só depois da gravação confirmada */
+      var sp = btn.querySelector(".spinner"); if (sp) sp.remove();
+      var ic = btn.querySelector(".ic"); ic.innerHTML = '<use href="#i-check"/>'; ic.style.display = "";
+      btn.querySelector(".lbl").textContent = "Recebido"; btn.classList.add("done");
+      statusEl.className = "status ok"; statusEl.textContent = "Contato recebido. Abrindo a próxima etapa..."; statusEl.hidden = false;
+      setTimeout(function(){ location.href = "redirect.html"; }, reduce ? 0 : 450);
+    }).catch(function(err){
+      setLoading(false);
+      setStatus((err && err.user) || "Não foi possível enviar agora. Tente de novo em instantes.");
+    });
+  });
+})();
+</script>
+</body>
+</html>

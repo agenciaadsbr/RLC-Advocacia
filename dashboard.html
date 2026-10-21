@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Leads | RLC Advocacia</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<script src="assets/js/config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#0a0a0a; --card:#171717; --card-2:#1f1f1f; --line:#262626; --line-2:#333;
+  --fg:#fafafa; --muted:#a3a3a3; --dim:#737373;
+  --c-visits:#a3a3a3; --c-leads:#fafafa; --c-conv:#d8b46e; --wa:#22a35a; --danger:#f87171;
+  --r:14px; color-scheme:dark;
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;padding:max(20px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(32px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+[hidden]{display:none!important}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--c-conv);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;min-width:0}
+.card-h{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.card-h h2{margin:0;font-size:14px;font-weight:600;letter-spacing:.01em}
+.muted{color:var(--muted)} .dim{color:var(--dim)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--line-2);background:transparent;cursor:pointer;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:background .2s,border-color .2s}
+.btn:hover{background:var(--card-2);border-color:#444}
+.btn.primary{background:var(--fg);color:#0a0a0a;border-color:var(--fg);width:100%;height:44px;font-size:13px}
+.btn.primary:hover{background:#e5e5e5}
+.btn[disabled]{opacity:.6;cursor:progress}
+
+/* Login */
+.login{min-height:calc(100vh - 80px);display:grid;place-items:center}
+.login .card{width:100%;max-width:380px;padding:28px;display:flex;flex-direction:column;gap:16px}
+.login h1{margin:0;font-size:16px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:12px;color:var(--muted)}
+.field input{height:42px;padding:0 12px;border-radius:10px;border:1px solid var(--line-2);background:#0f0f0f}
+.field input:focus{outline:none;border-color:#555}
+.err{min-height:18px;font-size:13px;color:var(--danger)}
+
+/* Topo */
+.top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:4px 0 8px}
+.top h1{margin:0;font-size:clamp(18px,2.4vw,22px);font-weight:700;letter-spacing:.06em}
+.top p{margin:4px 0 0}
+
+/* Filtro de período */
+.period{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.period label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.period input{height:32px;padding:0 8px;border-radius:8px;border:1px solid var(--line-2);background:#0f0f0f;font-size:13px;font-variant-numeric:tabular-nums}
+
+.chart-box{position:relative;height:300px}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:12px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{width:14px;height:2px;border-radius:2px;display:inline-block}
+.kpis{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:12px;color:var(--muted)}
+.kpis b{color:var(--fg);font-size:14px;font-variant-numeric:tabular-nums}
+
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.tbl-wrap{overflow-x:auto;margin:0 -4px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:12px;border-bottom:1px solid var(--line);vertical-align:middle;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+td.name{white-space:normal;min-width:160px}
+.wa-btn{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px;border-radius:8px;border:1px solid #2f4f3c;color:#86efac;text-decoration:none;font-size:12px;font-weight:600;transition:background .2s,border-color .2s}
+.wa-btn:hover{background:rgba(34,163,90,.12);border-color:var(--wa)}
+.wa-btn svg{width:14px;height:14px}
+.empty{padding:28px 12px;text-align:center;color:var(--dim)}
+.status{font-size:13px;color:var(--danger)}
+@media (max-width:640px){.card{padding:16px}.chart-box{height:240px}.top{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<!-- Login -->
+<main class="login" id="view-login">
+  <form class="card" id="login-form" novalidate>
+    <div>
+      <h1>Leads — RLC Advocacia</h1>
+      <p class="muted" style="margin:4px 0 0">Acesso restrito à equipe.</p>
+    </div>
+    <div class="field"><label for="l-user">Usuário</label><input id="l-user" autocomplete="username" required></div>
+    <div class="field"><label for="l-pass">Senha</label><input id="l-pass" type="password" autocomplete="current-password" required></div>
+    <div class="err" id="l-err" role="alert"></div>
+    <button class="btn primary" type="submit" id="l-btn">Entrar</button>
+  </form>
+</main>
+
+<!-- Painel -->
+<div class="wrap" id="view-dash" hidden>
+  <header class="top">
+    <div>
+      <h1>LEADS — RLC ADVOCACIA</h1>
+      <p class="muted" id="subtitle">Carregando…</p>
+    </div>
+    <button class="btn" type="button" id="logout">Sair</button>
+  </header>
+
+  <section class="card" aria-labelledby="h-evo">
+    <div class="card-h">
+      <h2 id="h-evo">Evolução diária</h2>
+      <div class="period">
+        <label for="f-from">De</label><input type="date" id="f-from">
+        <label for="f-to">Até</label><input type="date" id="f-to">
+      </div>
+    </div>
+    <div class="kpis" id="kpis"></div>
+    <div class="chart-box" style="margin-top:14px"><canvas id="chart" aria-label="Gráfico de visitas, cadastros e taxa de conversão por dia" role="img"></canvas></div>
+    <div class="legend">
+      <span><i style="background:var(--c-visits)"></i>Visitas</span>
+      <span><i style="background:var(--c-leads)"></i>Cadastros</span>
+      <span><i style="background:var(--c-conv)"></i>Taxa de conversão (%)</span>
+    </div>
+    <p class="status" id="chart-msg" hidden></p>
+  </section>
+
+  <div class="grid">
+    <section class="card" aria-labelledby="h-conv">
+      <div class="card-h"><h2 id="h-conv">Conversão por LP</h2><span class="dim" id="conv-period"></span></div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>LP</th><th class="num">Visitas</th><th class="num">Leads</th><th class="num">Conv.</th></tr></thead>
+        <tbody id="conv-body"><tr><td colspan="4" class="empty">Carregando…</td></tr></tbody>
+      </table></div>
+    </section>
+
+    <section class="card" aria-labelledby="h-leads">
+      <div class="card-h"><h2 id="h-leads">Leads</h2><span class="dim" id="leads-count"></span></div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Nome</th><th>WhatsApp</th><th>LP</th><th>Origem</th><th>Data</th><th>Ação</th></tr></thead>
+        <tbody id="leads-body"><tr><td colspan="6" class="empty">Carregando…</td></tr></tbody>
+      </table></div>
+    </section>
+  </div>
+  <p class="status" id="load-err" role="alert" hidden></p>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var C = window.RLC_CONFIG || {};
+  var BASE = (C.SUPABASE_URL || "").replace(/\/$/, "");
+  var KEY = C.SUPABASE_ANON_KEY;
+  var SITE = C.SITE;
+  var TZ = "America/Sao_Paulo";
+  var SKEY = "rlc_dash_session";
+  var session = null;
+  var chart = null;
+  var allLeads = [];
+
+  function $(id){ return document.getElementById(id); }
+  function loadSession(){ try { return JSON.parse(localStorage.getItem(SKEY) || "null"); } catch(e) { return null; } }
+  function saveSession(s){ session = s; try { if (s) localStorage.setItem(SKEY, JSON.stringify(s)); else localStorage.removeItem(SKEY); } catch(e) {} }
+
+  /* ---------- Auth (Supabase Auth, e-mail e senha) ---------- */
+  function authToken(grant, body){
+    return fetch(BASE + "/auth/v1/token?grant_type=" + grant, {
+      method: "POST", headers: { "apikey": KEY, "Content-Type": "application/json" }, body: JSON.stringify(body)
+    }).then(function(r){
+      return r.json().catch(function(){ return {}; }).then(function(j){
+        if (!r.ok || !j.access_token) throw { status: r.status, msg: j.error_description || j.msg || j.error || "erro" };
+        return { access_token: j.access_token, refresh_token: j.refresh_token, expires_at: j.expires_at || (Math.floor(Date.now()/1000) + (j.expires_in || 3600)) };
+      });
+    });
+  }
+  function ensureFresh(){
+    if (!session) return Promise.reject({ status: 401 });
+    if (session.expires_at - 60 > Date.now()/1000) return Promise.resolve(session);
+    return authToken("refresh_token", { refresh_token: session.refresh_token }).then(function(s){ saveSession(s); return s; });
+  }
+  function api(path, headers){
+    return ensureFresh().then(function(s){
+      return fetch(BASE + "/rest/v1/" + path, { headers: Object.assign({ "apikey": KEY, "Authorization": "Bearer " + s.access_token }, headers || {}) });
+    }).then(function(r){
+      if (r.status === 401) { throw { status: 401 }; }
+      if (!r.ok) return r.text().then(function(t){ throw { status: r.status, msg: t }; });
+      return r.json();
+    });
+  }
+  /* busca paginada (limite de 1000 linhas por resposta no PostgREST) */
+  function apiAll(path){
+    var out = [], step = 1000;
+    function page(from){
+      return api(path, { "Range-Unit": "items", "Range": from + "-" + (from + step - 1) }).then(function(rows){
+        out = out.concat(rows);
+        return rows.length === step ? page(from + step) : out;
+      });
+    }
+    return page(0);
+  }
+
+  function showLogin(msg){
+    $("view-dash").hidden = true; $("view-login").hidden = false;
+    $("l-err").textContent = msg || "";
+    setTimeout(function(){ $("l-user").focus(); }, 0);
+  }
+  function showDash(){
+    $("view-login").hidden = true; $("view-dash").hidden = false;
+    loadAll();
+  }
+
+  $("login-form").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var u = $("l-user").value.trim(), p = $("l-pass").value;
+    if (!u || !p) { $("l-err").textContent = "Informe usuário e senha."; return; }
+    var map = C.DASH_USERS || {};
+    var email = map[u.toLowerCase()] || (u.indexOf("@") > 0 ? u : null);
+    if (!email) { $("l-err").textContent = "Usuário ou senha incorretos."; return; }
+    var b = $("l-btn"); b.disabled = true; b.textContent = "Entrando…"; $("l-err").textContent = "";
+    authToken("password", { email: email, password: p }).then(function(s){
+      saveSession(s); $("l-pass").value = ""; showDash();
+    }).catch(function(e){
+      $("l-err").textContent = (e && e.status === 400) ? "Usuário ou senha incorretos." : "Não foi possível entrar agora. Verifique a conexão e tente de novo.";
+    }).then(function(){ b.disabled = false; b.textContent = "Entrar"; });
+  });
+
+  $("logout").addEventListener("click", function(){
+    var s = session;
+    if (s) fetch(BASE + "/auth/v1/logout", { method: "POST", headers: { "apikey": KEY, "Authorization": "Bearer " + s.access_token } }).catch(function(){});
+    saveSession(null);
+    if (chart) { chart.destroy(); chart = null; }
+    showLogin("");
+  });
+
+  /* ---------- Datas no fuso de São Paulo ---------- */
+  var dayFmt = new Intl.DateTimeFormat("en-CA", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit" });
+  var showFmt = new Intl.DateTimeFormat("pt-BR", { timeZone: TZ, day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" });
+  var shortFmt = new Intl.DateTimeFormat("pt-BR", { timeZone: "UTC", day: "2-digit", month: "2-digit" });
+  function dayKey(iso){ return dayFmt.format(new Date(iso)); }
+  function addDays(ymd, n){ var d = new Date(ymd + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0,10); }
+  function startIso(ymd){ return ymd + "T00:00:00-03:00"; }
+  var today = dayFmt.format(new Date());
+  $("f-to").value = today; $("f-from").value = addDays(today, -29);
+  $("f-to").max = today; $("f-from").max = today;
+
+  function pct(l, v){ return v > 0 ? (l / v * 100) : 0; }
+  function fmtPct(x){ return x.toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + "%"; }
+  function fmtPhone(w){
+    var d = String(w || "").replace(/\D/g, "").replace(/^55(?=\d{10,11}$)/, "");
+    if (d.length === 11) return "(" + d.slice(0,2) + ") " + d.slice(2,7) + "-" + d.slice(7);
+    if (d.length === 10) return "(" + d.slice(0,2) + ") " + d.slice(2,6) + "-" + d.slice(6);
+    return w || "";
+  }
+  function waLink(lead){
+    var d = String(lead.whatsapp || "").replace(/\D/g, "");
+    if (d.length === 10 || d.length === 11) d = "55" + d;
+    var first = String(lead.nome || "").trim().split(/\s+/)[0] || "";
+    var msg = "Olá, " + first + ". Recebemos seu contato através da " + (C.CLIENT_NAME || "RLC Advocacia") + " e gostaria de dar continuidade ao seu atendimento.";
+    return "https://wa.me/" + d + "?text=" + encodeURIComponent(msg);
+  }
+  function cell(tr, text, cls){ var td = document.createElement("td"); if (cls) td.className = cls; td.textContent = text; tr.appendChild(td); return td; }
+  function emptyRow(tbody, cols, msg){ tbody.innerHTML = ""; var tr = document.createElement("tr"); var td = document.createElement("td"); td.colSpan = cols; td.className = "empty"; td.textContent = msg; tr.appendChild(td); tbody.appendChild(tr); }
+
+  /* ---------- Carga e renderização ---------- */
+  function loadAll(){
+    $("load-err").hidden = true;
+    api("lp_leads?select=id,site,nome,whatsapp,origem,created_at&site=eq." + encodeURIComponent(SITE) + "&order=created_at.desc&limit=5000")
+      .then(function(rows){ allLeads = rows; return loadPeriod(); })
+      .catch(handleErr);
+  }
+  function loadPeriod(){
+    var from = $("f-from").value, to = $("f-to").value;
+    if (!from || !to) return;
+    if (from > to) { var t = from; from = to; to = t; $("f-from").value = from; $("f-to").value = to; }
+    var q = "lp_visits?select=created_at,site&site=eq." + encodeURIComponent(SITE) +
+            "&created_at=gte." + encodeURIComponent(startIso(from)) + "&created_at=lt." + encodeURIComponent(startIso(addDays(to, 1))) +
+            "&order=created_at.asc";
+    return apiAll(q).then(function(visits){ render(from, to, visits); }).catch(handleErr);
+  }
+  function handleErr(e){
+    if (e && e.status === 401) { saveSession(null); showLogin("Sua sessão expirou. Entre novamente."); return; }
+    $("load-err").textContent = "Não foi possível carregar os dados agora. Atualize a página para tentar de novo.";
+    $("load-err").hidden = false;
+  }
+
+  function render(from, to, visits){
+    var leads = allLeads.filter(function(l){ var k = dayKey(l.created_at); return k >= from && k <= to; });
+    var total = allLeads.length;
+    $("subtitle").textContent = total === 0 ? "Nenhum lead recebido ainda" : (total === 1 ? "1 lead no total" : total.toLocaleString("pt-BR") + " leads no total");
+
+    /* série diária */
+    var days = [], vMap = {}, lMap = {};
+    for (var d = from; d <= to; d = addDays(d, 1)) { days.push(d); vMap[d] = 0; lMap[d] = 0; }
+    visits.forEach(function(v){ var k = dayKey(v.created_at); if (k in vMap) vMap[k]++; });
+    leads.forEach(function(l){ var k = dayKey(l.created_at); if (k in lMap) lMap[k]++; });
+    var vs = days.map(function(k){ return vMap[k]; }), ls = days.map(function(k){ return lMap[k]; });
+    var cs = days.map(function(k){ return +pct(lMap[k], vMap[k]).toFixed(1); });
+    var tv = visits.length, tl = leads.length;
+
+    var k = $("kpis"); k.innerHTML = "";
+    [["Visitas", tv.toLocaleString("pt-BR")], ["Cadastros", tl.toLocaleString("pt-BR")], ["Conversão", fmtPct(pct(tl, tv))]].forEach(function(p){
+      var s = document.createElement("span"); s.appendChild(document.createTextNode(p[0] + " ")); var b = document.createElement("b"); b.textContent = p[1]; s.appendChild(b); k.appendChild(s);
+    });
+
+    drawChart(days, vs, ls, cs, tv + tl === 0);
+
+    /* conversão por LP */
+    var periodTxt = shortFmt.format(new Date(from + "T12:00:00Z")) + " a " + shortFmt.format(new Date(to + "T12:00:00Z"));
+    $("conv-period").textContent = periodTxt;
+    var bySite = {};
+    visits.forEach(function(v){ (bySite[v.site] = bySite[v.site] || { v: 0, l: 0 }).v++; });
+    leads.forEach(function(l){ (bySite[l.site] = bySite[l.site] || { v: 0, l: 0 }).l++; });
+    var cb = $("conv-body"), sites = Object.keys(bySite);
+    if (!sites.length) emptyRow(cb, 4, "Nenhum dado encontrado");
+    else {
+      cb.innerHTML = "";
+      sites.sort(function(a, b){ return bySite[b].v - bySite[a].v; }).forEach(function(s){
+        var tr = document.createElement("tr");
+        cell(tr, s); cell(tr, bySite[s].v.toLocaleString("pt-BR"), "num"); cell(tr, bySite[s].l.toLocaleString("pt-BR"), "num");
+        cell(tr, bySite[s].v ? fmtPct(pct(bySite[s].l, bySite[s].v)) : "—", "num");
+        cb.appendChild(tr);
+      });
+    }
+
+    /* leads do período */
+    $("leads-count").textContent = tl === 1 ? "1 no período" : tl.toLocaleString("pt-BR") + " no período";
+    var lb = $("leads-body");
+    if (!leads.length) emptyRow(lb, 6, "Nenhum lead encontrado");
+    else {
+      lb.innerHTML = "";
+      leads.forEach(function(l){
+        var tr = document.createElement("tr");
+        cell(tr, l.nome || "", "name");
+        cell(tr, fmtPhone(l.whatsapp));
+        cell(tr, l.site || "");
+        cell(tr, l.origem || "—");
+        cell(tr, showFmt.format(new Date(l.created_at)));
+        var td = document.createElement("td");
+        var a = document.createElement("a"); a.className = "wa-btn"; a.href = waLink(l); a.target = "_blank"; a.rel = "noopener";
+        a.setAttribute("aria-label", "Abrir conversa no WhatsApp com " + (l.nome || "o lead"));
+        a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Z"/></svg>WhatsApp';
+        td.appendChild(a); tr.appendChild(td);
+        lb.appendChild(tr);
+      });
+    }
+  }
+
+  function drawChart(days, vs, ls, cs, isEmpty){
+    var msg = $("chart-msg");
+    if (!window.Chart) { msg.textContent = "O gráfico não pôde ser carregado. Os números acima continuam válidos."; msg.hidden = false; return; }
+    msg.hidden = !isEmpty; if (isEmpty) { msg.textContent = "Nenhum dado encontrado no período."; msg.style.color = "var(--dim)"; }
+    var labels = days.map(function(d){ return shortFmt.format(new Date(d + "T12:00:00Z")); });
+    var css = getComputedStyle(document.documentElement);
+    var cV = css.getPropertyValue("--c-visits").trim(), cL = css.getPropertyValue("--c-leads").trim(), cC = css.getPropertyValue("--c-conv").trim();
+    var data = {
+      labels: labels,
+      datasets: [
+        { label: "Visitas", data: vs, borderColor: cV, backgroundColor: cV, yAxisID: "y", tension: .3, pointRadius: 0, pointHoverRadius: 4, borderWidth: 1.5 },
+        { label: "Cadastros", data: ls, borderColor: cL, backgroundColor: cL, yAxisID: "y", tension: .3, pointRadius: 2, pointHoverRadius: 5, borderWidth: 2 },
+        { label: "Conversão (%)", data: cs, borderColor: cC, backgroundColor: cC, yAxisID: "y1", tension: .3, pointRadius: 0, pointHoverRadius: 4, borderWidth: 1.5, borderDash: [4, 4] }
+      ]
+    };
+    if (chart) { chart.data = data; chart.update(); return; }
+    Chart.defaults.font.family = getComputedStyle(document.body).fontFamily;
+    Chart.defaults.color = "#737373";
+    chart = new Chart($("chart"), {
+      type: "line", data: data,
+      options: {
+        responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
+        interaction: { mode: "index", intersect: false },
+        plugins: { legend: { display: false }, tooltip: { backgroundColor: "#0a0a0a", borderColor: "#333", borderWidth: 1, padding: 10,
+          callbacks: { label: function(c){ return " " + c.dataset.label + ": " + (c.datasetIndex === 2 ? fmtPct(c.parsed.y) : c.parsed.y.toLocaleString("pt-BR")); } } } },
+        scales: {
+          x: { grid: { display: false }, ticks: { maxRotation: 0, autoSkipPadding: 16 } },
+          y: { beginAtZero: true, grid: { color: "#1f1f1f" }, ticks: { precision: 0 } },
+          y1: { beginAtZero: true, position: "right", grid: { display: false }, ticks: { callback: function(v){ return v + "%"; } } }
+        }
+      }
+    });
+  }
+
+  $("f-from").addEventListener("change", loadPeriod);
+  $("f-to").addEventListener("change", loadPeriod);
+
+  /* ---------- início ---------- */
+  if (!BASE || !KEY || !SITE) { showLogin("Configuração do Supabase ausente em assets/js/config.js."); return; }
+  session = loadSession();
+  if (session && session.refresh_token) {
+    ensureFresh().then(function(){ showDash(); }).catch(function(){ saveSession(null); showLogin(""); });
+  } else { showLogin(""); }
+})();
+</script>
+</body>
+</html>

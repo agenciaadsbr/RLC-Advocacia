@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contato recebido | RLC Advocacia</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#12100d">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap">
+<script src="assets/js/config.js"></script>
+<style>
+:root{--ink:#12100d;--on-ink:#f1ece3;--muted:#b3a993;--bronze:#b98a35;--bronze-soft:#d8b46e;--green:#178a4a;--green-hover:#11733d;--line:rgba(241,236,227,.14);color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--ink);color:var(--on-ink);font:17px/1.6 "Archivo","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;padding:max(24px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(24px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+main{flex:1;display:grid;place-items:center}
+.card{width:100%;max-width:520px;display:flex;flex-direction:column;gap:22px}
+.logo{width:150px}
+.check{width:64px;height:64px;border:1px solid var(--bronze);display:grid;place-items:center;color:var(--bronze-soft)}
+.check svg{width:30px;height:30px}
+.check path{stroke-dasharray:30;stroke-dashoffset:0}
+h1{margin:0;font-family:"Archivo",Arial,sans-serif;font-variation-settings:"wdth" 70;font-weight:700;font-size:clamp(2.2rem,7vw,3.2rem);line-height:1.02;letter-spacing:-.01em;text-wrap:balance}
+p{margin:0;color:var(--muted)}
+.serif{font-family:"Newsreader",Georgia,serif;font-style:italic;color:var(--on-ink);font-size:1.15rem}
+.bar{height:2px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:100%;background:var(--bronze);transform-origin:left;transform:scaleX(0)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.7em;min-height:56px;padding:.85em 1.4em;background:var(--green);color:#fff;border-radius:3px;font:600 1.05rem/1.1 "Archivo",Arial,sans-serif;font-variation-settings:"wdth" 108;text-decoration:none;transition:background .2s,transform .2s}
+.btn:hover{background:var(--green-hover);transform:translateY(-1px)}
+.btn:focus-visible{outline:3px solid #7ee2a8;outline-offset:3px}
+.btn svg{width:20px;height:20px}
+.small{font-size:.9rem}
+.small b{color:var(--on-ink);font-weight:600;user-select:all}
+a.back{color:var(--bronze-soft);font-size:.92rem}
+@media (prefers-reduced-motion:no-preference){
+  .check path{animation:tick .7s .15s cubic-bezier(.2,.7,.2,1) both}
+  .card>*{animation:fade .6s cubic-bezier(.2,.7,.2,1) both}
+  .card>*:nth-child(2){animation-delay:.05s}.card>*:nth-child(3){animation-delay:.1s}.card>*:nth-child(4){animation-delay:.15s}
+}
+@keyframes tick{from{stroke-dashoffset:30}to{stroke-dashoffset:0}}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<main>
+  <div class="card" role="status" aria-live="polite">
+    <img class="logo" src="assets/img/logo-rlc.webp" width="588" height="356" alt="RLC Advocacia">
+    <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></div>
+    <h1 id="title">Recebemos seu contato.</h1>
+    <p class="serif" id="msg">Vamos abrir o WhatsApp do escritório para você continuar a conversa com a equipe.</p>
+    <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+    <a class="btn" id="wa-btn" href="#" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15a8.23 8.23 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48a.92.92 0 0 0-.66.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29Z"/></svg><span id="wa-lbl">Abrir o WhatsApp agora</span></a>
+    <p class="small" id="fallback">Se o WhatsApp não abrir sozinho, toque no botão acima ou chame o número <b id="wa-num">(41) 99917-3755</b>.</p>
+    <a class="back" href="index.html">Voltar para a página</a>
+  </div>
+</main>
+<script>
+(function(){
+  "use strict";
+  var C = window.RLC_CONFIG || {};
+  var lead = null;
+  try { lead = JSON.parse(sessionStorage.getItem("rlc_lead") || "null"); } catch(e) {}
+  if (lead && lead.nome) {
+    document.getElementById("title").textContent = "Obrigado, " + lead.nome + ". Recebemos seu contato.";
+  }
+  var num = (C.WHATSAPP_NUMBER || "").replace(/\D/g, "");
+  var btn = document.getElementById("wa-btn");
+  if (!num) {
+    btn.hidden = true;
+    document.getElementById("msg").textContent = "A equipe do escritório vai retornar pelo WhatsApp que você informou.";
+    document.getElementById("fallback").hidden = true;
+    document.querySelector(".bar").hidden = true;
+    return;
+  }
+  var d = num.replace(/^55/, "");
+  document.getElementById("wa-num").textContent = "(" + d.slice(0,2) + ") " + d.slice(2, d.length - 4) + "-" + d.slice(-4);
+  var url = "https://wa.me/" + num + "?text=" + encodeURIComponent(C.WHATSAPP_MESSAGE || "");
+  btn.href = url;
+  /* Esta página não grava nada: o lead já foi salvo antes do redirecionamento. */
+  var delay = Number(C.REDIRECT_DELAY_MS) || 3000;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var bar = document.getElementById("bar");
+  if (!reduce) { bar.style.transition = "transform " + delay + "ms linear"; requestAnimationFrame(function(){ requestAnimationFrame(function(){ bar.style.transform = "scaleX(1)"; }); }); }
+  else { bar.style.transform = "scaleX(1)"; }
+  var t = setTimeout(function(){
+    try { window.location.href = url; } catch(e) {}
+    /* se o navegador bloquear, o botão continua disponível */
+    setTimeout(function(){ document.getElementById("wa-lbl").textContent = "Abrir o WhatsApp"; }, 1200);
+  }, delay);
+  btn.addEventListener("click", function(){ clearTimeout(t); });
+})();
+</script>
+</body>
+</html>
