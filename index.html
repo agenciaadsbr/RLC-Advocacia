@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>RLC Advocacia | Financiamento de Veículos</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="RLC Advocacia: revisão de contratos de financiamento de carros e motos e defesa em ações de busca e apreensão de veículos. Desde 2010. OAB/PR 47.415.">
+<meta name="description" content="RLC Advocacia: revisão de contratos de financiamento de carros, motos e veículos pesados e defesa em ações de busca e apreensão. Desde 2010. OAB/PR 47.415.">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..800;1,100,400&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap">
-<link rel="preload" as="image" href="assets/img/hero-veiculo.webp">
+<link rel="preload" as="image" href="assets/img/hero-frota.webp">
 <script src="assets/js/config.js"></script>
 <style>
 /* Conceito: "contrato anotado". Faixas escuras (cor do monograma) alternam com papel claro;
@@ -104,6 +104,18 @@ p{margin:0}
 .btn.done{background:#0f6b38}
 .btn-sm{min-height:42px;padding:.6em 1em;font-size:.92rem}
 
+/* CTA: pulso suave em volta, brilho que atravessa o botão e seta que acena */
+.btn.cta::after,#f-submit::after{content:"";position:absolute;top:0;bottom:0;left:0;width:45%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent);transform:translateX(-130%) skewX(-20deg);pointer-events:none}
+@media (prefers-reduced-motion:no-preference){
+  .btn.cta:not(.btn-sm),#f-submit:not([disabled]){animation:ctaPulse 2.6s ease-out infinite}
+  .btn.cta::after,#f-submit:not([disabled])::after{animation:ctaShine 4.8s 1.2s ease-in-out infinite}
+  .btn.cta .arrow{animation:ctaNudge 2.6s ease-in-out infinite}
+  .btn.cta:hover,#f-submit:hover{animation-play-state:paused}
+}
+@keyframes ctaPulse{0%{box-shadow:0 0 0 0 rgba(34,170,92,.55),0 10px 24px -14px rgba(23,138,74,.9)}70%{box-shadow:0 0 0 14px rgba(34,170,92,0),0 10px 24px -14px rgba(23,138,74,.9)}100%{box-shadow:0 0 0 0 rgba(34,170,92,0),0 10px 24px -14px rgba(23,138,74,.9)}}
+@keyframes ctaShine{0%,70%{transform:translateX(-130%) skewX(-20deg)}100%{transform:translateX(260%) skewX(-20deg)}}
+@keyframes ctaNudge{0%,55%,75%,100%{transform:none}65%{transform:translateX(5px)}}
+
 /* Links de texto: o sublinhado se refaz da esquerda no hover */
 .textlink{position:relative;font-weight:600;text-decoration:none;padding-bottom:3px;transition:color var(--t-micro) var(--ease)}
 .textlink::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform-origin:right center}
@@ -114,7 +126,8 @@ p{margin:0}
 @keyframes relink{0%{transform:scaleX(1);transform-origin:right center}45%{transform:scaleX(0);transform-origin:right center}46%{transform:scaleX(0);transform-origin:left center}100%{transform:scaleX(1);transform-origin:left center}}
 
 /* Cabeçalho: transparente sobre o hero, compacto e sólido depois de rolar */
-.top{position:fixed;left:0;right:0;top:0;z-index:50;padding-top:env(safe-area-inset-top,0px);color:var(--on-ink);background:rgba(18,16,13,0);border-bottom:1px solid transparent;transition:background .45s var(--ease),border-color .45s var(--ease),box-shadow .45s var(--ease)}
+.top{position:fixed;left:0;right:0;top:0;z-index:50;transform:translateY(-110%);padding-top:env(safe-area-inset-top,0px);color:var(--on-ink);background:rgba(18,16,13,0);border-bottom:1px solid transparent;transition:transform .45s var(--ease),background .45s var(--ease),border-color .45s var(--ease),box-shadow .45s var(--ease)}
+.top.scrolled,.top:focus-within{transform:none}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:var(--head-h);transition:height .45s var(--ease)}
 .top .logo{display:block;transform-origin:left center;transition:transform .45s var(--ease)}
 .top .logo img{height:46px;width:auto}
@@ -129,36 +142,57 @@ p{margin:0}
 @media (max-width:860px){.top nav a.nl{display:none}.top .logo img{height:40px}.top.scrolled .wrap{height:58px}}
 @media (max-width:380px){.top .btn-sm span{display:none}.top .btn-sm{padding:.6em .8em}}
 
-/* HERO: texto à esquerda, foto contida na coluna direita */
-.hero{position:relative}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,64px);align-items:center;padding-top:calc(var(--head-h) + env(safe-area-inset-top,0px) + clamp(28px,5vw,64px));padding-bottom:calc(clamp(56px,7vw,104px) + var(--curve))}
-.hero-copy{display:flex;flex-direction:column;gap:26px;min-width:0}
-.hero h1{font-size:clamp(2.6rem,6.4vw,5.4rem);font-variation-settings:"wdth" 66;line-height:.97}
-.hero h1 .ln{display:block}
-.hero h1 .serif{font-family:var(--serif);font-weight:400;font-style:italic;font-variation-settings:normal;letter-spacing:-.015em}
-.hero .lede{color:var(--on-ink-muted)}
+/* HERO: duas colunas; a foto ocupa toda a lateral direita, até a borda da tela */
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,52fr) minmax(0,48fr);min-height:min(880px,100svh);overflow:hidden;isolation:isolate}
+.hero .copy-col{position:relative;z-index:1;display:flex;flex-direction:column;min-width:0;padding-bottom:var(--curve)}
+.hero .inner{padding-left:max(32px, env(safe-area-inset-left,0px), calc((100vw - var(--max)) / 2));padding-right:clamp(24px,3vw,44px)}
+.hero-top{display:flex;align-items:center;gap:22px;padding-top:calc(28px + env(safe-area-inset-top,0px))}
+.hero-top .logo img{height:60px;width:auto}
+.hero-top .area{font-size:.68rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;font-variation-settings:"wdth" 115;color:var(--on-ink-muted);padding:4px 0 4px 22px;border-left:1px solid var(--line-ink);line-height:1.5}
+.hero-body{flex:1;display:flex;align-items:center;padding-block:clamp(40px,7vh,80px)}
+.hero-copy{display:flex;flex-direction:column;gap:24px;max-width:600px;min-width:0}
+.hero h1{font-size:clamp(2.1rem,3.4vw,3.3rem);font-weight:700;font-variation-settings:"wdth" 76;text-transform:uppercase;line-height:1.03;letter-spacing:-.005em}
+.hero h1 .ln{display:block;text-wrap:balance}
+.hero h1 .lt{font-weight:200;color:var(--bronze-soft)}
+.hero .lede{font-family:var(--body);font-size:1.08rem;line-height:1.6;color:var(--on-ink-muted);max-width:46ch}
 .hero .lede strong{color:var(--on-ink);font-weight:500}
-.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px}
-.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:6px 0 0;padding:20px 0 0;position:relative;font-size:.86rem;line-height:1.45;color:var(--on-ink-muted)}
-.facts::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--line-ink);transform-origin:left center}
-.facts li{list-style:none;padding:0 16px;border-left:1px solid var(--line-ink);min-width:0}
-.facts li:first-child{border-left:0;padding-left:0}
-.facts b{display:block;color:var(--on-ink);font-weight:600;font-variation-settings:"wdth" 110;letter-spacing:.02em}
-@media (max-width:420px){.facts{grid-template-columns:1fr 1fr;row-gap:16px}.facts li:nth-child(3){border-left:0;padding-left:0}}
-.hero-media{position:relative;margin:0;min-width:0}
-.hero-photo{position:relative;overflow:hidden;aspect-ratio:4/5;border-radius:var(--r-img);background:var(--ink-3);box-shadow:0 40px 80px -40px rgba(0,0,0,.75);-webkit-mask-image:-webkit-radial-gradient(white,black)}
-.hero-photo .px{position:absolute;inset:-12% -4%}
-.hero-photo .mv{position:absolute;inset:0}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
-.hero-photo::after{content:"";position:absolute;inset:auto 0 0 0;height:42%;background:linear-gradient(0deg,rgba(12,11,9,.82),rgba(12,11,9,0));pointer-events:none}
-.hero-photo figcaption{position:absolute;left:24px;right:24px;bottom:22px;z-index:2;max-width:19em}
-.hero-photo figcaption .note{color:var(--on-ink)}
-.hero-photo figcaption::before{content:"";display:block;width:36px;height:1px;background:var(--bronze-soft);margin-bottom:10px}
-@media (max-width:860px){
-  .hero .wrap{grid-template-columns:1fr;padding-bottom:calc(48px + var(--curve))}
-  .hero-photo{aspect-ratio:4/3}
-  .hero-photo img{object-position:50% 46%}
-  .hero-photo figcaption{display:none}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:10px}
+.hero-actions small{font-size:.82rem;line-height:1.5;color:var(--on-ink-muted);max-width:28ch}
+.hero-foot{border-top:1px solid var(--line-ink)}
+.facts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));font-size:.84rem;line-height:1.45;color:var(--on-ink-muted)}
+.facts li{padding:20px 20px 22px 0;min-width:0}
+.facts li+li{padding-left:20px;border-left:1px solid var(--line-ink)}
+.facts b{display:block;margin-bottom:4px;color:var(--on-ink);font-weight:600;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-variation-settings:"wdth" 115}
+.hero-media{position:relative;margin:0;overflow:hidden;min-height:100%;background:var(--ink-3)}
+.hero-media .px{position:absolute;inset:-8% 0}
+.hero-media .mv{position:absolute;inset:0}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:62% 60%}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,rgba(18,16,13,.45) 22%,rgba(18,16,13,0) 55%),linear-gradient(0deg,rgba(18,16,13,.6),rgba(18,16,13,0) 35%);pointer-events:none}
+.hero .rule{position:absolute;z-index:2;left:52%;top:-10%;width:1px;height:130%;background:rgba(216,180,110,.32);transform:rotate(-24deg);transform-origin:center top;pointer-events:none}
+.hero .rule.r2{left:calc(52% + 26px);background:rgba(241,236,227,.14)}
+@media (max-width:980px){
+  .hero{grid-template-columns:minmax(0,1fr);min-height:0}
+  .hero .copy-col{position:static}
+  .hero-media{order:-1;height:min(64vw,440px);min-height:0}
+  .hero-media::before{content:"";position:absolute;inset:0 0 auto;height:140px;z-index:1;background:linear-gradient(rgba(18,16,13,.8),rgba(18,16,13,0))}
+  .hero-media::after{background:linear-gradient(0deg,var(--ink) 0%,rgba(18,16,13,0) 60%)}
+  .hero-media img{object-position:60% 72%}
+  .hero .rule{display:none}
+  .hero-top{position:absolute;top:0;left:0;right:0;z-index:3}
+  .hero .inner{padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+  .hero-body{padding-block:8px 44px}
+}
+@media (max-width:720px){
+  .hero-top{justify-content:center;padding-top:calc(18px + env(safe-area-inset-top,0px))}
+  .hero-top .area{display:none}
+  .hero-top .logo img{height:52px}
+  .hero-copy{align-items:center;text-align:center;margin-inline:auto}
+  .hero-actions{flex-direction:column;width:100%;gap:12px}
+  .hero-actions .btn{width:100%;justify-content:center}
+  .hero-actions small{max-width:none}
+  .facts{grid-template-columns:1fr;text-align:center}
+  .facts li,.facts li+li{padding:14px 0;border-left:0}
+  .facts li+li{border-top:1px solid var(--line-ink)}
 }
 
 /* Seção 2: identificação (centralizada) */
@@ -192,7 +226,7 @@ p{margin:0}
 .feat-b .big{font-family:var(--serif);font-style:italic;font-size:clamp(1.2rem,1.8vw,1.42rem);line-height:1.38;color:var(--on-ink);padding-top:18px;border-top:1px solid var(--line-ink)}
 .tag{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-variation-settings:"wdth" 120;color:var(--bronze-soft)}
 .tag::before{content:"";width:18px;height:1px;background:currentColor}
-@media (max-width:860px){.feat{grid-template-columns:1fr}.feat-a{min-height:400px}.feat-a::after{background:linear-gradient(180deg,rgba(18,16,13,.25) 0%,rgba(18,16,13,.85) 38%,rgba(18,16,13,.96) 100%)}}
+@media (max-width:860px){.feat{grid-template-columns:1fr}.feat-a{min-height:0;display:flex;flex-direction:column}.feat-a .px{position:relative;inset:auto;height:clamp(200px,52vw,300px);flex:none}.feat-a::after{inset:0 0 auto 0;height:clamp(200px,52vw,300px);background:linear-gradient(180deg,rgba(18,16,13,0) 40%,var(--ink) 100%)}.feat-body{position:relative;padding-top:6px}}
 /* Também atuamos em (centralizada) */
 .index{display:flex;flex-direction:column;align-items:center;gap:clamp(28px,4vw,44px);margin-top:clamp(64px,8vw,104px)}
 .index-lab{display:flex;flex-direction:column;gap:10px}
@@ -347,6 +381,27 @@ p{margin:0}
 @media (max-width:860px){.foot .wrap{grid-template-columns:1fr}.foot-info{grid-template-columns:1fr 1fr}}
 @media (max-width:480px){.foot-info{grid-template-columns:1fr}}
 
+/* ===== Mobile: textos centralizados ===== */
+@media (max-width:720px){
+  .eyebrow{justify-content:center}
+  .eyebrow::after{content:"";flex:none;width:28px;height:1px;background:currentColor;transform-origin:right center;transition:transform var(--t-mask) var(--ease-io) calc(var(--d,0ms) + 120ms)}
+  .areas-head,.feat-body,.feat-b,.how-copy,.how-copy>div,.about-mark,.about-copy,.final-copy,.form>div:first-child,.index-lab{align-items:center;text-align:center}
+  .areas-head .lede,.about-copy p,.final-copy p,.feat-a p{margin-inline:auto}
+  .tag{justify-content:center}
+  .feat-b .textlink,.how-copy .btn{align-self:center!important}
+  .feat-b .big{text-align:center}
+  .how-media .note{text-align:center;margin-inline:auto}
+  .steps{padding-left:0}
+  .steps::before,.steps .fill,.steps li::before{display:none}
+  .steps li{grid-template-columns:1fr;justify-items:center;text-align:center;gap:8px}
+  .year{justify-content:center}
+  .sig{text-align:center}
+  .sig div,.sig div+div{padding:16px 0 0}
+  .foot .wrap,.foot-info{text-align:center}
+  .foot .wrap>div:first-child{align-items:center}
+  .legal{justify-content:center;text-align:center}
+}
+
 /* ===== Sistema de movimento ===== */
 .px{will-change:transform}
 @media (prefers-reduced-motion:no-preference){
@@ -355,16 +410,15 @@ p{margin:0}
   .hero .eyebrow::before{animation:drawx 1s .2s var(--ease-io) both}
   .hero h1 .ln{animation:rise .9s var(--ease) both}
   .hero h1 .ln:nth-child(1){animation-delay:.06s}
-  .hero h1 .ln:nth-child(2){animation-delay:.14s}
+  .hero h1 .ln:nth-child(2){animation-delay:.16s}
   .hero h1 .ln:nth-child(3){animation-delay:.22s}
-  .hero .mark::after{animation:drawx .9s .75s var(--ease-io) both}
   .hero .lede{animation:fade .8s .36s var(--ease) both}
   .hero-actions{animation:fade .8s .46s var(--ease) both}
   .facts{animation:fade .8s .56s var(--ease) both}
   .facts::before{animation:drawx 1.1s .6s var(--ease-io) both}
-  .hero-photo{animation:unmask var(--t-mask) .12s var(--ease-io) both}
-  .hero-photo img{animation:settle 1.8s .12s var(--ease) both}
-  .hero-photo figcaption{animation:fade .8s 1s var(--ease) both}
+  .hero-media img{animation:settle 2.2s .05s var(--ease) both}
+  .hero .rule{animation:fadeo 1.4s .5s var(--ease) both}
+  .hero-top{animation:fade .7s var(--ease) both}
 
   /* Revelação na rolagem: só recebe .pre o que estava abaixo da dobra ao carregar */
   .js .rv{transition:opacity var(--t-reveal) var(--ease) var(--d,0ms),transform var(--t-reveal) var(--ease) var(--d,0ms)}
@@ -424,30 +478,36 @@ p{margin:0}
 
 <!-- 1. HERO -->
 <section class="hero ink" id="topo" aria-labelledby="h-hero">
-  <div class="wrap">
-    <div class="hero-copy">
-      <p class="eyebrow">Financiamento de veículos · Busca e apreensão</p>
-      <h1 id="h-hero"><span class="ln">Seu veículo financiado</span> <span class="ln">merece uma</span> <span class="ln serif"><span class="mark">análise cuidadosa.</span></span></h1>
-      <p class="lede">Revisão de contratos de <strong>financiamento de carros e motos</strong> e defesa de quem responde a uma <strong>ação de busca e apreensão de veículo</strong>. Atendimento personalizado, com explicação clara de cada etapa.</p>
-      <div class="hero-actions">
-        <a class="btn cta" href="#contato"><svg aria-hidden="true"><use href="#i-wa"/></svg>Solicitar análise<svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="textlink" href="#busca-e-apreensao">Recebeu uma notificação? Veja o que observar</a>
+  <div class="copy-col">
+    <div class="inner hero-top">
+      <a class="logo" href="#topo" aria-label="RLC Advocacia"><img src="assets/img/logo-rlc.webp" width="588" height="356" alt="RLC Advocacia"></a>
+      <span class="area">Direito Bancário Veicular</span>
+    </div>
+    <div class="inner hero-body">
+      <div class="hero-copy">
+        <p class="eyebrow">Financiamento de veículos · Busca e apreensão</p>
+        <h1 id="h-hero"><span class="ln">Seu veículo financiado merece uma</span> <span class="ln lt">análise cuidadosa.</span></h1>
+        <p class="lede">Revisão de contratos de <strong>financiamento de carros, motos e veículos pesados</strong> e defesa de quem responde a uma <strong>ação de busca e apreensão</strong>. Atendimento personalizado, com explicação clara de cada etapa.</p>
+        <div class="hero-actions">
+          <a class="btn cta" href="#contato"><svg aria-hidden="true"><use href="#i-wa"/></svg>Solicitar análise<svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <small>Atendimento pelo WhatsApp, com análise individual do seu contrato.</small>
+        </div>
       </div>
+    </div>
+    <div class="inner hero-foot">
       <ul class="facts">
         <li><b>Desde 2010</b>Fundada pelo Dr. Rafael Loiola Cardoso</li>
         <li><b>OAB/PR 47.415</b>Responsável técnico</li>
-        <li><b>Carros e motos</b>Financiamento e busca e apreensão</li>
+        <li><b>Veículos</b>Carros, motos e pesados</li>
       </ul>
     </div>
-    <figure class="hero-media" id="hero-media">
-      <div class="hero-photo">
-        <div class="px" data-px="0.07"><div class="mv" id="hero-mv">
-          <img src="assets/img/hero-veiculo.webp" width="980" height="970" alt="Contrato de financiamento de veículo sobre a mesa, com a chave do carro, e o carro estacionado do lado de fora" fetchpriority="high">
-        </div></div>
-        <figcaption><p class="note">Juros, CET, seguros e tarifas: cada item do financiamento do veículo conta.</p></figcaption>
-      </div>
-    </figure>
   </div>
+  <figure class="hero-media" id="hero-media">
+    <div class="px" data-px="0.06"><div class="mv" id="hero-mv">
+      <img src="assets/img/hero-frota.webp" width="1400" height="1360" alt="Carro, caminhão e moto estacionados em uma garagem coberta à noite" fetchpriority="high">
+    </div></div>
+  </figure>
+  <span class="rule" aria-hidden="true"></span><span class="rule r2" aria-hidden="true"></span>
 </section>
 
 <!-- 2. IDENTIFICAÇÃO -->
@@ -456,10 +516,10 @@ p{margin:0}
     <div class="ident-head center rv">
       <p class="eyebrow">Quando procurar orientação</p>
       <h2 class="h2" id="h-ident">Situações comuns no financiamento de veículos</h2>
-      <p class="note">O contrato de financiamento do carro ou da moto reúne juros, tarifas e seguros que nem sempre ficam claros na hora da compra.</p>
+      <p class="note">O contrato de financiamento do carro, da moto ou do caminhão reúne juros, tarifas e seguros que nem sempre ficam claros na hora da compra.</p>
     </div>
     <ul class="sit" data-stagger>
-      <li class="rv"><span class="tagm">Parcelas</span><div><h3>A parcela do carro ou da moto ficou pesada</h3><p>Vale entender como foram calculados os juros, o Custo Efetivo Total (CET) e o valor final que será pago pelo veículo.</p></div></li>
+      <li class="rv"><span class="tagm">Parcelas</span><div><h3>A parcela do financiamento do veículo ficou pesada</h3><p>Vale entender como foram calculados os juros, o Custo Efetivo Total (CET) e o valor final que será pago pelo veículo.</p></div></li>
       <li class="rv"><span class="tagm">Tarifas e seguros</span><div><h3>Há cobranças no contrato que você não reconhece</h3><p>Seguro prestamista, tarifa de cadastro, registro do contrato e avaliação do bem são itens que podem ser conferidos no financiamento.</p></div></li>
       <li class="rv"><span class="tagm">Atraso</span><div><h3>As parcelas do veículo estão atrasadas</h3><p>O atraso gera encargos e pode levar à cobrança do banco. Entender a situação do contrato ajuda a decidir o próximo passo.</p></div></li>
       <li class="rv"><span class="tagm">Notificação</span><div><h3>Chegou uma notificação sobre o veículo</h3><p>Carta do banco ou aviso de busca e apreensão pedem atenção aos prazos e aos documentos recebidos.</p></div></li>
@@ -475,7 +535,7 @@ p{margin:0}
     <div class="areas-head rv">
       <p class="eyebrow">Áreas de atuação</p>
       <h2 id="h-areas">Direito Bancário Veicular</h2>
-      <p class="lede">Atuação preventiva e contenciosa em financiamentos de carros e motos, da análise do contrato à defesa na ação de busca e apreensão.</p>
+      <p class="lede">Atuação preventiva e contenciosa em financiamentos de carros, motos e veículos pesados, da análise do contrato à defesa na ação de busca e apreensão.</p>
     </div>
 
     <div class="feat">
@@ -484,13 +544,13 @@ p{margin:0}
         <div class="feat-body">
           <span class="tag">Prioridade do escritório</span>
           <h3>Revisão de financiamento de veículos</h3>
-          <p>Análise do contrato do carro ou da moto: taxa de juros, Custo Efetivo Total (CET), tarifas, seguros e forma de cálculo das parcelas, para verificar se há valores que possam ser questionados.</p>
+          <p>Análise do contrato do carro, da moto ou do veículo pesado: taxa de juros, Custo Efetivo Total (CET), tarifas, seguros e forma de cálculo das parcelas, para verificar se há valores que possam ser questionados.</p>
         </div>
       </article>
       <article class="feat-b rv" style="--d:140ms">
         <span class="tag">Defesa</span>
         <h3>Defesa em ação de busca e apreensão</h3>
-        <p>Atuação para quem responde a uma ação de busca e apreensão de carro ou moto, com análise do contrato, da notificação e do andamento do processo.</p>
+        <p>Atuação para quem responde a uma ação de busca e apreensão de carro, moto ou veículo pesado, com análise do contrato, da notificação e do andamento do processo.</p>
         <p class="big">Os prazos desse processo são curtos. Quanto antes os documentos forem analisados, mais clara fica a situação.</p>
         <a class="textlink" href="#busca-e-apreensao" style="align-self:flex-start">Entenda o que a lei prevê</a>
       </article>
@@ -518,7 +578,7 @@ p{margin:0}
   <div class="wrap">
     <div class="ba-copy center rv">
       <p class="eyebrow">Busca e apreensão de veículos</p>
-      <h2 id="h-ba">Recebeu uma notificação sobre o seu carro ou moto?</h2>
+      <h2 id="h-ba">Recebeu uma notificação sobre o seu veículo?</h2>
       <p>No financiamento com <strong>alienação fiduciária</strong>, o veículo fica vinculado ao contrato até a quitação. Havendo atraso, o credor pode notificar o devedor e, depois, pedir a busca e apreensão na Justiça.</p>
       <p>Cada situação depende do <strong>contrato</strong>, da forma como a <strong>notificação</strong> foi feita, dos <strong>valores cobrados</strong> e do <strong>andamento do processo</strong>. Por isso, a orientação começa pela leitura desses documentos.</p>
     </div>
@@ -602,7 +662,7 @@ p{margin:0}
       <p class="note">Respostas gerais. Cada caso depende do contrato do veículo e dos documentos.</p>
     </div>
     <div class="acc" data-acc>
-      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-1" id="faq-b1">É possível revisar o financiamento do carro ou da moto?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-1" role="region" aria-labelledby="faq-b1"><div><p>A revisão pode ser pedida quando a análise identifica taxas, tarifas ou encargos em desacordo com a lei ou com o que foi contratado. Nem todo financiamento apresenta irregularidades, por isso o primeiro passo é sempre a leitura do contrato e dos valores cobrados.</p></div></div></div>
+      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-1" id="faq-b1">É possível revisar o financiamento do carro, da moto ou do caminhão?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-1" role="region" aria-labelledby="faq-b1"><div><p>A revisão pode ser pedida quando a análise identifica taxas, tarifas ou encargos em desacordo com a lei ou com o que foi contratado. Nem todo financiamento apresenta irregularidades, por isso o primeiro passo é sempre a leitura do contrato e dos valores cobrados.</p></div></div></div>
       <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-2" id="faq-b2">O que é analisado no financiamento de um veículo?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-2" role="region" aria-labelledby="faq-b2"><div><p>Entre outros pontos: a taxa de juros e a forma de cálculo das parcelas, o Custo Efetivo Total (CET), tarifas como cadastro, registro do contrato e avaliação do bem, seguros incluídos, encargos por atraso e a cláusula de alienação fiduciária. Também se compara o contrato com o que está sendo cobrado.</p></div></div></div>
       <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-3" id="faq-b3">O que fazer ao receber uma notificação de busca e apreensão?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-3" role="region" aria-labelledby="faq-b3"><div><p>Guarde a notificação e o envelope, reúna o contrato do veículo e os comprovantes de pagamento e procure orientação jurídica, porque os prazos do processo são curtos. Antes de assinar acordos ou entregar o veículo, procure entender as consequências de cada opção.</p></div></div></div>
       <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-4" id="faq-b4">Quais documentos separar para a análise?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-4" role="region" aria-labelledby="faq-b4"><div><p>Em geral: contrato de financiamento e aditivos, carnê ou boletos, comprovantes de pagamento, documento do veículo (CRLV), notificações recebidas e, se houver processo, o número dele ou cópias das peças. Não é preciso ter tudo para fazer o primeiro contato.</p></div></div></div>
@@ -618,7 +678,7 @@ p{margin:0}
     <div class="final-copy rv">
       <p class="eyebrow">Fale com a RLC Advocacia</p>
       <h2 class="h2" id="h-final">Converse com a equipe sobre o financiamento do seu veículo</h2>
-      <p>Deixe seu nome e WhatsApp. Em seguida, você será direcionado para conversar com o escritório e contar a situação do seu carro ou moto com calma.</p>
+      <p>Deixe seu nome e WhatsApp. Em seguida, você será direcionado para conversar com o escritório e contar a situação do seu veículo com calma.</p>
       <figure class="final-media rv-img"><div class="px" data-px="0.06"><img src="assets/img/carro-e-moto.webp" width="1102" height="735" alt="Carro e moto estacionados na garagem de uma casa ao entardecer" loading="lazy"></div></figure>
     </div>
     <form class="form rv" style="--d:140ms" id="lead-form" novalidate aria-labelledby="h-form">
@@ -760,6 +820,7 @@ p{margin:0}
 
   /* ===== Cabeçalho, parallax, trilho das etapas e cursor no hero: um único laço por quadro ===== */
   var top = document.getElementById("topbar");
+  var heroEl = document.getElementById("topo");
   var pxEls = Array.prototype.slice.call(document.querySelectorAll("[data-px]")).map(function(el){
     return { el: el, speed: parseFloat(el.getAttribute("data-px")) || 0, box: el.closest(".hero-media, .feat-a, .ba, .final-media") || el.parentElement, on: false, y: null };
   });
@@ -783,7 +844,7 @@ p{margin:0}
   function frame(){
     ticking = false;
     var vh = window.innerHeight, sy = window.scrollY;
-    top.classList.toggle("scrolled", sy > 24);
+    top.classList.toggle("scrolled", sy > Math.max(120, heroEl.offsetHeight - 140));
 
     var allow = pxAllowed();
     pxEls.forEach(function(p){
