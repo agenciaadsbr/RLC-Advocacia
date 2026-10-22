@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RLC Advocacia | Direito Bancário</title>
+<title>RLC Advocacia | Financiamento de Veículos</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="RLC Advocacia: análise de contratos de financiamento de veículos, defesa em ações de busca e apreensão e revisão de empréstimos, cartão e cheque especial. Desde 2010. OAB/PR 47.415.">
+<meta name="description" content="RLC Advocacia: revisão de contratos de financiamento de carros e motos e defesa em ações de busca e apreensão de veículos. Desde 2010. OAB/PR 47.415.">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="RLC Advocacia">
-<meta property="og:title" content="Direito Bancário | RLC Advocacia">
-<meta property="og:description" content="Seu financiamento merece uma análise cuidadosa. Revisão de contratos e defesa em busca e apreensão de veículos.">
-<meta property="og:image" content="assets/img/og-rlc-bancario.jpg">
+<meta property="og:title" content="Financiamento de veículos e busca e apreensão | RLC Advocacia">
+<meta property="og:description" content="Seu veículo financiado merece uma análise cuidadosa. Revisão de financiamento de carros e motos e defesa em busca e apreensão.">
+<meta property="og:image" content="https://rlc-advocacia.vercel.app/assets/img/og-rlc-veicular.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#12100d">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..800;1,100,400&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap">
-<link rel="preload" as="image" href="assets/img/hero-contrato.webp">
+<link rel="preload" as="image" href="assets/img/hero-veiculo.webp">
 <script src="assets/js/config.js"></script>
 <style>
 /* Conceito: "contrato anotado". Faixas escuras (cor do monograma) alternam com papel claro;
@@ -149,7 +149,7 @@ p{margin:0}
 .hero-photo{position:relative;overflow:hidden;aspect-ratio:4/5;border-radius:var(--r-img);background:var(--ink-3);box-shadow:0 40px 80px -40px rgba(0,0,0,.75);-webkit-mask-image:-webkit-radial-gradient(white,black)}
 .hero-photo .px{position:absolute;inset:-12% -4%}
 .hero-photo .mv{position:absolute;inset:0}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:40% 74%}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
 .hero-photo::after{content:"";position:absolute;inset:auto 0 0 0;height:42%;background:linear-gradient(0deg,rgba(12,11,9,.82),rgba(12,11,9,0));pointer-events:none}
 .hero-photo figcaption{position:absolute;left:24px;right:24px;bottom:22px;z-index:2;max-width:19em}
 .hero-photo figcaption .note{color:var(--on-ink)}
@@ -157,7 +157,7 @@ p{margin:0}
 @media (max-width:860px){
   .hero .wrap{grid-template-columns:1fr;padding-bottom:calc(48px + var(--curve))}
   .hero-photo{aspect-ratio:4/3}
-  .hero-photo img{object-position:50% 78%}
+  .hero-photo img{object-position:50% 46%}
   .hero-photo figcaption{display:none}
 }
 
@@ -183,7 +183,7 @@ p{margin:0}
 .feat-a .px{position:absolute;inset:-12% 0}
 .feat-a img{width:100%;height:100%;object-fit:cover;object-position:60% 50%;transition:transform 1.4s var(--ease)}
 .feat-a:hover img{transform:scale(1.035)}
-.feat-a::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,16,13,.05) 15%,rgba(18,16,13,.62) 48%,rgba(18,16,13,.94) 100%);pointer-events:none}
+.feat-a::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,16,13,0) 20%,rgba(18,16,13,.5) 52%,rgba(18,16,13,.93) 100%);pointer-events:none}
 .feat-body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;gap:12px}
 .feat h3{font-size:clamp(1.8rem,3vw,2.5rem)}
 .feat-a p{color:#cfc6b6;max-width:34em}
@@ -238,7 +238,7 @@ p{margin:0}
 .how .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(36px,6vw,96px);align-items:center}
 .how-media{margin:0;position:relative;min-width:0}
 .how-media .ph{overflow:hidden;border-radius:var(--r-img);box-shadow:0 30px 60px -36px rgba(0,0,0,.45);-webkit-mask-image:-webkit-radial-gradient(white,black)}
-.how-media img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:62% 50%}
+.how-media img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:35% 60%}
 .how-media .note{margin-top:14px;max-width:22em}
 .how-copy{display:flex;flex-direction:column;gap:28px;min-width:0}
 .steps{list-style:none;margin:0;padding:0 0 0 32px;position:relative;--p:0}
@@ -305,7 +305,7 @@ p{margin:0}
 .final-copy p{color:var(--on-ink-muted);max-width:32em}
 .final-media{margin:14px 0 0;position:relative;max-width:560px;overflow:hidden;aspect-ratio:16/11;border-radius:var(--r-img);-webkit-mask-image:-webkit-radial-gradient(white,black)}
 .final-media .px{position:absolute;inset:-12% 0}
-.final-media img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:saturate(.9)}
+.final-media img{width:100%;height:100%;object-fit:cover;object-position:50% 62%}
 .form{background:var(--paper);color:var(--on-paper);padding:clamp(24px,3.4vw,40px);display:flex;flex-direction:column;gap:20px;border-radius:22px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6);position:relative}
 .form::before{content:"";position:absolute;left:clamp(24px,3.4vw,40px);top:0;width:64px;height:3px;border-radius:0 0 3px 3px;background:var(--bronze);transition:width .6s var(--ease)}
 .form:focus-within::before{width:calc(100% - 2 * clamp(24px,3.4vw,40px))}
@@ -398,6 +398,10 @@ p{margin:0}
     <symbol id="i-card" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="M3 9.5h18M6.5 15h4"/></g></symbol>
     <symbol id="i-key" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="m11 12 8.5-8.5M16.5 6.5l2 2M14.5 8.5l1.5 1.5"/></g></symbol>
     <symbol id="i-bank" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5M4.5 9.5v8M9 9.5v8M15 9.5v8M19.5 9.5v8M3 20h18"/></g></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v2.5M20 16v2.5M3 12.5l1.8-5A2 2 0 0 1 6.7 6h10.6a2 2 0 0 1 1.9 1.5l1.8 5"/><rect x="3" y="12" width="18" height="5" rx="1"/><path d="M6.5 14.5h1M16.5 14.5h1"/></g></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M8.5 12.5h7M8.5 16h4.5"/></g></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="1.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4M12 13v3l2 1.2"/></g></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3.5 6 8.5 7 8.5-7"/></g></symbol>
   </defs>
 </svg>
 
@@ -422,9 +426,9 @@ p{margin:0}
 <section class="hero ink" id="topo" aria-labelledby="h-hero">
   <div class="wrap">
     <div class="hero-copy">
-      <p class="eyebrow">Direito Bancário · RLC Advocacia</p>
-      <h1 id="h-hero"><span class="ln">Seu financiamento</span> <span class="ln">merece uma</span> <span class="ln serif"><span class="mark">análise cuidadosa.</span></span></h1>
-      <p class="lede">Analisamos contratos de <strong>financiamento de veículos, empréstimos e cartão</strong> e atuamos na defesa de quem responde a uma <strong>ação de busca e apreensão</strong>. Atendimento personalizado, com explicação clara de cada etapa.</p>
+      <p class="eyebrow">Financiamento de veículos · Busca e apreensão</p>
+      <h1 id="h-hero"><span class="ln">Seu veículo financiado</span> <span class="ln">merece uma</span> <span class="ln serif"><span class="mark">análise cuidadosa.</span></span></h1>
+      <p class="lede">Revisão de contratos de <strong>financiamento de carros e motos</strong> e defesa de quem responde a uma <strong>ação de busca e apreensão de veículo</strong>. Atendimento personalizado, com explicação clara de cada etapa.</p>
       <div class="hero-actions">
         <a class="btn cta" href="#contato"><svg aria-hidden="true"><use href="#i-wa"/></svg>Solicitar análise<svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="textlink" href="#busca-e-apreensao">Recebeu uma notificação? Veja o que observar</a>
@@ -432,15 +436,15 @@ p{margin:0}
       <ul class="facts">
         <li><b>Desde 2010</b>Fundada pelo Dr. Rafael Loiola Cardoso</li>
         <li><b>OAB/PR 47.415</b>Responsável técnico</li>
-        <li><b>Primeiro contato</b>Pelo WhatsApp</li>
+        <li><b>Carros e motos</b>Financiamento e busca e apreensão</li>
       </ul>
     </div>
     <figure class="hero-media" id="hero-media">
       <div class="hero-photo">
         <div class="px" data-px="0.07"><div class="mv" id="hero-mv">
-          <img src="assets/img/hero-contrato.webp" width="1200" height="1490" alt="Contrato de financiamento sobre mesa de madeira, com chave de carro e caneta, enquanto um profissional aponta uma cláusula" fetchpriority="high">
+          <img src="assets/img/hero-veiculo.webp" width="980" height="970" alt="Contrato de financiamento de veículo sobre a mesa, com a chave do carro, e o carro estacionado do lado de fora" fetchpriority="high">
         </div></div>
-        <figcaption><p class="note">Taxas, CET, seguros e encargos: cada linha do contrato conta.</p></figcaption>
+        <figcaption><p class="note">Juros, CET, seguros e tarifas: cada item do financiamento do veículo conta.</p></figcaption>
       </div>
     </figure>
   </div>
@@ -451,16 +455,16 @@ p{margin:0}
   <div class="wrap">
     <div class="ident-head center rv">
       <p class="eyebrow">Quando procurar orientação</p>
-      <h2 class="h2" id="h-ident">Situações que pedem uma segunda leitura</h2>
-      <p class="note">Contratos bancários são longos e técnicos. Entender o que foi assinado é o primeiro passo para decidir com segurança.</p>
+      <h2 class="h2" id="h-ident">Situações comuns no financiamento de veículos</h2>
+      <p class="note">O contrato de financiamento do carro ou da moto reúne juros, tarifas e seguros que nem sempre ficam claros na hora da compra.</p>
     </div>
     <ul class="sit" data-stagger>
-      <li class="rv"><span class="tagm">Financiamento</span><div><h3>As parcelas do financiamento pesam mais do que o previsto</h3><p>Vale entender como foram calculados os juros, as tarifas e os seguros incluídos no contrato do veículo.</p></div></li>
-      <li class="rv"><span class="tagm">Cláusulas</span><div><h3>Há cláusulas que você não entendeu ao assinar</h3><p>Uma leitura técnica mostra o que cada cláusula prevê e quais efeitos ela tem sobre a sua dívida.</p></div></li>
-      <li class="rv"><span class="tagm">Notificação</span><div><h3>Chegou uma notificação sobre o veículo financiado</h3><p>Carta de cobrança ou aviso de busca e apreensão pedem atenção aos prazos e aos documentos recebidos.</p></div></li>
-      <li class="rv"><span class="tagm">Encargos</span><div><h3>Encargos de empréstimo, cartão ou cheque especial não fecham</h3><p>Comparar o que foi contratado com o que está sendo cobrado ajuda a identificar se há algo a questionar.</p></div></li>
+      <li class="rv"><span class="tagm">Parcelas</span><div><h3>A parcela do carro ou da moto ficou pesada</h3><p>Vale entender como foram calculados os juros, o Custo Efetivo Total (CET) e o valor final que será pago pelo veículo.</p></div></li>
+      <li class="rv"><span class="tagm">Tarifas e seguros</span><div><h3>Há cobranças no contrato que você não reconhece</h3><p>Seguro prestamista, tarifa de cadastro, registro do contrato e avaliação do bem são itens que podem ser conferidos no financiamento.</p></div></li>
+      <li class="rv"><span class="tagm">Atraso</span><div><h3>As parcelas do veículo estão atrasadas</h3><p>O atraso gera encargos e pode levar à cobrança do banco. Entender a situação do contrato ajuda a decidir o próximo passo.</p></div></li>
+      <li class="rv"><span class="tagm">Notificação</span><div><h3>Chegou uma notificação sobre o veículo</h3><p>Carta do banco ou aviso de busca e apreensão pedem atenção aos prazos e aos documentos recebidos.</p></div></li>
     </ul>
-    <p class="caveat note rv">Nem toda cobrança alta é irregular. É a análise do contrato e dos extratos que indica se existe algo a ser questionado e qual caminho faz sentido no seu caso.</p>
+    <p class="caveat note rv">Nem toda parcela alta é irregular. É a análise do contrato do veículo e dos valores cobrados que indica se existe algo a ser questionado no seu caso.</p>
     <a class="btn cta rv" href="#contato"><svg aria-hidden="true"><use href="#i-wa"/></svg>Entrar em contato</a>
   </div>
 </section>
@@ -470,23 +474,23 @@ p{margin:0}
   <div class="wrap">
     <div class="areas-head rv">
       <p class="eyebrow">Áreas de atuação</p>
-      <h2 id="h-areas">Direito Bancário e Revisional</h2>
-      <p class="lede">Atuação preventiva e contenciosa nas relações com bancos e financeiras, com foco em veículos financiados.</p>
+      <h2 id="h-areas">Direito Bancário Veicular</h2>
+      <p class="lede">Atuação preventiva e contenciosa em financiamentos de carros e motos, da análise do contrato à defesa na ação de busca e apreensão.</p>
     </div>
 
     <div class="feat">
       <article class="feat-a rv-img">
-        <div class="px" data-px="0.06"><img src="assets/img/analise-documentos.webp" width="1350" height="900" alt="Advogado revisando contrato de empréstimo e extratos bancários sobre a mesa" loading="lazy"></div>
+        <div class="px" data-px="0.06"><img src="assets/img/financiamento-veiculo.webp" width="1102" height="735" alt="Cliente assinando o contrato de financiamento de um carro na concessionária, com a chave sobre a mesa" loading="lazy"></div>
         <div class="feat-body">
           <span class="tag">Prioridade do escritório</span>
           <h3>Revisão de financiamento de veículos</h3>
-          <p>Análise do contrato, da taxa de juros, do Custo Efetivo Total (CET), das tarifas e dos seguros, para verificar se há cláusulas ou valores que possam ser questionados.</p>
+          <p>Análise do contrato do carro ou da moto: taxa de juros, Custo Efetivo Total (CET), tarifas, seguros e forma de cálculo das parcelas, para verificar se há valores que possam ser questionados.</p>
         </div>
       </article>
       <article class="feat-b rv" style="--d:140ms">
         <span class="tag">Defesa</span>
         <h3>Defesa em ação de busca e apreensão</h3>
-        <p>Atuação para quem responde a uma ação de busca e apreensão de veículo, com análise do contrato, da notificação e do andamento do processo.</p>
+        <p>Atuação para quem responde a uma ação de busca e apreensão de carro ou moto, com análise do contrato, da notificação e do andamento do processo.</p>
         <p class="big">Os prazos desse processo são curtos. Quanto antes os documentos forem analisados, mais clara fica a situação.</p>
         <a class="textlink" href="#busca-e-apreensao" style="align-self:flex-start">Entenda o que a lei prevê</a>
       </article>
@@ -494,15 +498,16 @@ p{margin:0}
 
     <div class="index">
       <div class="index-lab center rv">
-        <p class="eyebrow">Também atuamos em</p>
-        <p class="note">Outras relações com bancos, cartões e contas.</p>
+        <p class="eyebrow">No financiamento do veículo</p>
+        <p class="note">O que é verificado na análise do seu contrato.</p>
       </div>
       <ul class="svc" data-stagger>
-        <li class="rv"><span class="ico"><svg aria-hidden="true"><use href="#i-pct"/></svg></span><h3>Revisão de empréstimos</h3><p>Análise dos termos e dos encargos de empréstimos contratados.</p></li>
-        <li class="rv"><span class="ico"><svg aria-hidden="true"><use href="#i-card"/></svg></span><h3>Cartão de crédito</h3><p>Verificação de cobranças, juros e encargos previstos no contrato do cartão.</p></li>
-        <li class="rv"><span class="ico"><svg aria-hidden="true"><use href="#i-key"/></svg></span><h3>Operações com garantia</h3><p>Revisão e orientação em contratos que envolvem garantias e penhoras.</p></li>
-        <li class="rv"><span class="ico"><svg aria-hidden="true"><use href="#i-bank"/></svg></span><h3>Limite de conta e cheque especial</h3><p>Análise de juros e cobranças sobre o limite da conta corrente.</p></li>
+        <li class="rv"><span class="ico"><svg aria-hidden="true"><use href="#i-pct"/></svg></span><h3>Juros e CET</h3><p>Taxa contratada, Custo Efetivo Total e a forma de cálculo das parcelas.</p></li>
+        <li class="rv"><span class="ico"><svg aria-hidden="true"><use href="#i-doc"/></svg></span><h3>Tarifas e seguros</h3><p>Cadastro, registro do contrato, avaliação do bem e seguros incluídos.</p></li>
+        <li class="rv"><span class="ico"><svg aria-hidden="true"><use href="#i-cal"/></svg></span><h3>Parcelas em atraso</h3><p>Encargos cobrados pelo atraso e situação atual do contrato.</p></li>
+        <li class="rv"><span class="ico"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><h3>Notificações do banco</h3><p>Cartas de cobrança e avisos ligados à busca e apreensão.</p></li>
       </ul>
+      <p class="note rv" style="text-align:center;font-size:.95rem">O escritório também atende outras questões bancárias, como empréstimos e cartão de crédito.</p>
     </div>
   </div>
 </section>
@@ -513,7 +518,7 @@ p{margin:0}
   <div class="wrap">
     <div class="ba-copy center rv">
       <p class="eyebrow">Busca e apreensão de veículos</p>
-      <h2 id="h-ba">Recebeu uma notificação sobre o seu veículo?</h2>
+      <h2 id="h-ba">Recebeu uma notificação sobre o seu carro ou moto?</h2>
       <p>No financiamento com <strong>alienação fiduciária</strong>, o veículo fica vinculado ao contrato até a quitação. Havendo atraso, o credor pode notificar o devedor e, depois, pedir a busca e apreensão na Justiça.</p>
       <p>Cada situação depende do <strong>contrato</strong>, da forma como a <strong>notificação</strong> foi feita, dos <strong>valores cobrados</strong> e do <strong>andamento do processo</strong>. Por isso, a orientação começa pela leitura desses documentos.</p>
     </div>
@@ -531,7 +536,7 @@ p{margin:0}
     <div class="checklist center rv">
       <h3 style="font-size:1.35rem;font-variation-settings:'wdth' 82">O que é analisado</h3>
       <ul>
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Contrato de financiamento e aditivos</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Contrato de financiamento do veículo</li>
         <li><svg aria-hidden="true"><use href="#i-check"/></svg>Notificação recebida e a data de entrega</li>
         <li><svg aria-hidden="true"><use href="#i-check"/></svg>Valores cobrados e planilha do credor</li>
         <li><svg aria-hidden="true"><use href="#i-check"/></svg>Peças e decisões do processo, se já houver</li>
@@ -548,7 +553,7 @@ p{margin:0}
 <section class="how paper band lift" id="como-funciona" aria-labelledby="h-how">
   <div class="wrap">
     <figure class="how-media">
-      <div class="ph rv-img"><img src="assets/img/atendimento.webp" width="1200" height="900" alt="Cliente conversando com um profissional em uma mesa de reunião" loading="lazy"></div>
+      <div class="ph rv-img"><img src="assets/img/atendimento-veiculo.webp" width="849" height="1062" alt="Cliente explicando a situação do financiamento do carro, com a chave e o carnê sobre a mesa" loading="lazy"></div>
       <figcaption class="note rv">O primeiro contato é feito pelo WhatsApp, no horário que for melhor para você.</figcaption>
     </figure>
     <div class="how-copy">
@@ -558,11 +563,11 @@ p{margin:0}
       </div>
       <ol class="steps" id="steps" data-stagger>
         <span class="fill" aria-hidden="true"></span>
-        <li class="rv"><span class="n" aria-hidden="true">1</span><div><h3>Você conta o que está acontecendo</h3><p>Pelo WhatsApp, você explica a situação: o tipo de contrato, o banco ou a financeira e o que motivou o contato.</p></div></li>
-        <li class="rv"><span class="n" aria-hidden="true">2</span><div><h3>Análise inicial das informações</h3><p>Com o contrato, as notificações e os extratos que você tiver, é feita uma primeira leitura dos documentos disponíveis.</p></div></li>
+        <li class="rv"><span class="n" aria-hidden="true">1</span><div><h3>Você conta o que está acontecendo</h3><p>Pelo WhatsApp, você explica a situação: o veículo financiado, o banco ou a financeira e o que motivou o contato.</p></div></li>
+        <li class="rv"><span class="n" aria-hidden="true">2</span><div><h3>Análise inicial das informações</h3><p>Com o contrato de financiamento, os boletos ou o carnê e as notificações que você tiver, é feita uma primeira leitura dos documentos.</p></div></li>
         <li class="rv"><span class="n" aria-hidden="true">3</span><div><h3>Orientação sobre o caminho possível</h3><p>Você recebe uma explicação sobre as possibilidades jurídicas que se aplicam ao seu caso e sobre o que cada uma envolve.</p></div></li>
       </ol>
-      <p class="note rv">Ainda não reuniu todos os documentos? Comece pelo que você tem. A equipe orienta o que mais pode ser útil.</p>
+      <p class="note rv">Não está com o contrato do veículo em mãos? Comece pelo que você tem. A equipe orienta o que mais pode ser útil.</p>
       <a class="btn cta rv" href="#contato" style="align-self:flex-start"><svg aria-hidden="true"><use href="#i-wa"/></svg>Solicitar análise<svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
@@ -577,9 +582,9 @@ p{margin:0}
     </div>
     <div class="about-copy rv" style="--d:120ms">
       <p class="eyebrow">O escritório</p>
-      <h2 class="h2" id="h-about">Advocacia bancária com atendimento próximo</h2>
-      <p>A <strong>RLC Advocacia</strong> foi fundada em 2010 pelo <strong>Dr. Rafael Loiola Cardoso</strong>. O escritório atua de forma preventiva e contenciosa, com foco em Direito Bancário e Revisional, e se destaca pelo atendimento personalizado.</p>
-      <p>O trabalho é conduzido com ética e transparência, para que cada cliente entenda o próprio contrato, os riscos envolvidos e as opções disponíveis.</p>
+      <h2 class="h2" id="h-about">Advocacia bancária veicular com atendimento próximo</h2>
+      <p>A <strong>RLC Advocacia</strong> foi fundada em 2010 pelo <strong>Dr. Rafael Loiola Cardoso</strong>. O escritório atua de forma preventiva e contenciosa em Direito Bancário e Revisional, com foco em financiamentos de veículos e ações de busca e apreensão, e se destaca pelo atendimento personalizado.</p>
+      <p>O trabalho é conduzido com ética e transparência, para que cada cliente entenda o contrato do próprio veículo, os riscos envolvidos e as opções disponíveis.</p>
       <dl class="sig">
         <div><dt>Fundador</dt><dd>Dr. Rafael Loiola Cardoso</dd></div>
         <div><dt>Inscrição</dt><dd>OAB/PR 47.415</dd></div>
@@ -594,15 +599,15 @@ p{margin:0}
     <div class="faq-head center rv">
       <p class="eyebrow">Perguntas frequentes</p>
       <h2 class="h2" id="h-faq">Dúvidas comuns antes do primeiro contato</h2>
-      <p class="note">Respostas gerais. Cada caso depende do contrato e dos documentos.</p>
+      <p class="note">Respostas gerais. Cada caso depende do contrato do veículo e dos documentos.</p>
     </div>
     <div class="acc" data-acc>
-      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-1" id="faq-b1">É possível revisar um contrato de financiamento?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-1" role="region" aria-labelledby="faq-b1"><div><p>A revisão pode ser pedida quando a análise identifica cláusulas, taxas ou encargos em desacordo com a lei ou com o que foi contratado. Nem todo contrato apresenta irregularidades, por isso o primeiro passo é sempre a leitura dos documentos.</p></div></div></div>
-      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-2" id="faq-b2">O que é analisado em um contrato bancário?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-2" role="region" aria-labelledby="faq-b2"><div><p>Entre outros pontos: a taxa de juros e a forma de cálculo, o Custo Efetivo Total (CET), tarifas, seguros e serviços incluídos, encargos por atraso e as cláusulas sobre garantias. Também se compara o contrato com os valores efetivamente cobrados.</p></div></div></div>
-      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-3" id="faq-b3">O que fazer ao receber uma notificação de busca e apreensão?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-3" role="region" aria-labelledby="faq-b3"><div><p>Guarde a notificação e o envelope, reúna o contrato e os comprovantes de pagamento e procure orientação jurídica, porque os prazos do processo são curtos. Antes de assinar acordos ou tomar decisões sobre o veículo, procure entender as consequências de cada opção.</p></div></div></div>
-      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-4" id="faq-b4">Quais documentos podem ser necessários para a análise?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-4" role="region" aria-labelledby="faq-b4"><div><p>Em geral: contrato e aditivos, boletos ou carnê, comprovantes de pagamento, extratos, notificações recebidas e, se houver processo, o número dele ou cópias das peças. Não é preciso ter tudo para fazer o primeiro contato.</p></div></div></div>
-      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-5" id="faq-b5">Como funciona o primeiro contato com o escritório?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-5" role="region" aria-labelledby="faq-b5"><div><p>Você informa seu nome e WhatsApp no formulário desta página e, em seguida, é direcionado para conversar com a equipe no WhatsApp. Lá você conta a sua situação e recebe orientação sobre os próximos passos.</p></div></div></div>
-      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-6" id="faq-b6">Contratar um advogado garante a revisão ou impede a apreensão?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-6" role="region" aria-labelledby="faq-b6"><div><p>Não. A atuação jurídica busca defender os seus interesses dentro da lei, mas o resultado depende do contrato, das provas e das decisões do Judiciário. Nenhum advogado pode garantir resultado.</p></div></div></div>
+      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-1" id="faq-b1">É possível revisar o financiamento do carro ou da moto?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-1" role="region" aria-labelledby="faq-b1"><div><p>A revisão pode ser pedida quando a análise identifica taxas, tarifas ou encargos em desacordo com a lei ou com o que foi contratado. Nem todo financiamento apresenta irregularidades, por isso o primeiro passo é sempre a leitura do contrato e dos valores cobrados.</p></div></div></div>
+      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-2" id="faq-b2">O que é analisado no financiamento de um veículo?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-2" role="region" aria-labelledby="faq-b2"><div><p>Entre outros pontos: a taxa de juros e a forma de cálculo das parcelas, o Custo Efetivo Total (CET), tarifas como cadastro, registro do contrato e avaliação do bem, seguros incluídos, encargos por atraso e a cláusula de alienação fiduciária. Também se compara o contrato com o que está sendo cobrado.</p></div></div></div>
+      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-3" id="faq-b3">O que fazer ao receber uma notificação de busca e apreensão?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-3" role="region" aria-labelledby="faq-b3"><div><p>Guarde a notificação e o envelope, reúna o contrato do veículo e os comprovantes de pagamento e procure orientação jurídica, porque os prazos do processo são curtos. Antes de assinar acordos ou entregar o veículo, procure entender as consequências de cada opção.</p></div></div></div>
+      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-4" id="faq-b4">Quais documentos separar para a análise?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-4" role="region" aria-labelledby="faq-b4"><div><p>Em geral: contrato de financiamento e aditivos, carnê ou boletos, comprovantes de pagamento, documento do veículo (CRLV), notificações recebidas e, se houver processo, o número dele ou cópias das peças. Não é preciso ter tudo para fazer o primeiro contato.</p></div></div></div>
+      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-5" id="faq-b5">Como funciona o primeiro contato com o escritório?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-5" role="region" aria-labelledby="faq-b5"><div><p>Você informa seu nome e WhatsApp no formulário desta página e, em seguida, é direcionado para conversar com a equipe no WhatsApp. Lá você conta a situação do seu financiamento e recebe orientação sobre os próximos passos.</p></div></div></div>
+      <div class="acc-item rv"><h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-6" id="faq-b6">Pedir a revisão do contrato impede a busca e apreensão?<span class="plus" aria-hidden="true"></span></button></h3><div class="acc-panel" id="faq-6" role="region" aria-labelledby="faq-b6"><div><p>Não necessariamente. A simples discussão do contrato não suspende, por si só, a cobrança nem o processo de busca e apreensão. O resultado depende do contrato, das provas e das decisões do Judiciário, e nenhum advogado pode garantir a manutenção ou a devolução do veículo.</p></div></div></div>
     </div>
   </div>
 </section>
@@ -612,13 +617,13 @@ p{margin:0}
   <div class="wrap">
     <div class="final-copy rv">
       <p class="eyebrow">Fale com a RLC Advocacia</p>
-      <h2 class="h2" id="h-final">Converse com a equipe sobre o seu contrato</h2>
-      <p>Deixe seu nome e WhatsApp. Em seguida, você será direcionado para conversar com o escritório e contar a sua situação com calma.</p>
-      <figure class="final-media rv-img"><div class="px" data-px="0.06"><img src="assets/img/escritorio.webp" width="1050" height="1400" alt="Escritório de advocacia com estante de livros e mesa de madeira ao entardecer" loading="lazy"></div></figure>
+      <h2 class="h2" id="h-final">Converse com a equipe sobre o financiamento do seu veículo</h2>
+      <p>Deixe seu nome e WhatsApp. Em seguida, você será direcionado para conversar com o escritório e contar a situação do seu carro ou moto com calma.</p>
+      <figure class="final-media rv-img"><div class="px" data-px="0.06"><img src="assets/img/carro-e-moto.webp" width="1102" height="735" alt="Carro e moto estacionados na garagem de uma casa ao entardecer" loading="lazy"></div></figure>
     </div>
     <form class="form rv" style="--d:140ms" id="lead-form" novalidate aria-labelledby="h-form">
       <div style="display:flex;flex-direction:column;gap:8px">
-        <h3 id="h-form">Solicite uma análise</h3>
+        <h3 id="h-form">Solicite a análise do seu financiamento</h3>
         <p class="note">Leva menos de um minuto. São só dois campos.</p>
       </div>
       <div class="field">
@@ -651,7 +656,7 @@ p{margin:0}
   <div class="wrap">
     <div style="display:flex;flex-direction:column;gap:14px">
       <img src="assets/img/logo-rlc.webp" width="588" height="356" alt="RLC Advocacia" loading="lazy">
-      <p>Direito Bancário e Revisional</p>
+      <p>Financiamento de veículos e busca e apreensão</p>
     </div>
     <div class="foot-info">
       <div><h2>Responsável técnico</h2><p>Dr. Rafael Loiola Cardoso<br>OAB/PR 47.415</p></div>

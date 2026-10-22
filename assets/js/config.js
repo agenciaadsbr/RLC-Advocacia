@@ -1,5 +1,5 @@
 /*
- * Configuração central da LP de Direito Bancário | RLC Advocacia
+ * Configuração central da LP de Financiamento de Veículos | RLC Advocacia
  * Único lugar para ajustar backend, WhatsApp e rastreamento.
  * A chave abaixo é a chave PÚBLICA (anon) do Supabase: só permite inserir visitas/leads.
  * A leitura exige login (Supabase Auth + RLS por site). Nunca coloque a service_role aqui.
@@ -20,7 +20,7 @@ window.RLC_CONFIG = {
 
   // WhatsApp oficial (número publicado em rlcadvocacia.com, botão do site atual)
   WHATSAPP_NUMBER: "5541999173755",
-  WHATSAPP_MESSAGE: "Olá, entrei em contato pela página de Direito Bancário da RLC Advocacia e gostaria de obter informações sobre o meu caso.",
+  WHATSAPP_MESSAGE: "Olá, entrei em contato pela página de financiamento de veículos da RLC Advocacia e gostaria de obter informações sobre o meu caso.",
   REDIRECT_DELAY_MS: 3000,
 
   // Google Tag Manager já instalado no site atual (rlcadvocacia.com)
